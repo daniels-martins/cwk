@@ -1,0 +1,56 @@
+@use 'base/base';
+
+// utilities {tag}
+.spacious-1{
+  letter-spacing: .1rem;
+}
+
+.height-full{
+  height: 100vh;
+}
+
+// money {tag}
+.naira{
+  text-decoration: line-through;
+  text-decoration-style: double;
+}
+
+.nairablock_sm{
+  // padding: 0 1.5rem;
+  width: 50%;
+
+}
+// .amount_with_pay_btn{
+//   disp
+// }
+
+
+
+// typography {tag}
+.txt-lg{
+  font-size: larger;
+}
+
+.laksaman{
+font-family: 'laksaman';
+}
+
+// ======= pages 
+
+
+// 1. checkout1
+.btn-lg{
+  padding: 10px 30px;
+}
+
+.btn_custom{
+  padding: 1.5rem 5rem;
+  background-color: #2F4193;
+  color: white;
+  border-radius: .2rem;
+}
+.btn_custom:hover{
+  color: white;
+
+}
+

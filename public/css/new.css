@@ -1,0 +1,40 @@
+.spacious-1 {
+  letter-spacing: 0.1rem;
+}
+
+.height-full {
+  height: 100vh;
+}
+
+.naira {
+  text-decoration: line-through;
+  -webkit-text-decoration-style: double;
+          text-decoration-style: double;
+}
+
+.nairablock_sm {
+  width: 50%;
+}
+
+.txt-lg {
+  font-size: larger;
+}
+
+.laksaman {
+  font-family: "laksaman";
+}
+
+.btn-lg {
+  padding: 10px 30px;
+}
+
+.btn_custom {
+  padding: 1.5rem 5rem;
+  background-color: #2F4193;
+  color: white;
+  border-radius: 0.2rem;
+}
+
+.btn_custom:hover {
+  color: white;
+}

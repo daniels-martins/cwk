@@ -1,0 +1,20 @@
+/* @import 'tailwindcss/base'; */
+/* @import 'tailwindcss/components'; */
+/* @import 'tailwindcss/utilities'; */
+
+/* global styles */
+button {
+  background: none;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: grey;
+  font-weight: 700;
+  font-size: smaller;
+  font-family: "Josefin Sans",sans-serif;
+  letter-spacing: .1rem;
+  cursor: pointer;
+}
+button:hover{
+  color: rgba(108, 108, 236, 0.809);
+}
