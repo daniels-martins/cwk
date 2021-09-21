@@ -210,7 +210,7 @@ final class Annotation
      */
     public function setTypes(array $types): void
     {
-        $pattern = '/'.preg_quote($this->getTypesContent(), '/').'/';
+        $pattern = '/' . preg_quote($this->getTypesContent(), '/') . '/';
 
         $this->lines[0]->setContent(Preg::replace($pattern, implode('|', $types), $this->lines[0]->getContent(), 1));
 
@@ -289,7 +289,7 @@ final class Annotation
             }
 
             $matchingResult = Preg::match(
-                '{^(?:\s*\*|/\*\*)\s*@'.$name.'\s+'.TypeExpression::REGEX_TYPES.'(?:[*\h\v].*)?\r?$}sx',
+                '{^(?:\s*\*|/\*\*)\s*@' . $name . '\s+' . TypeExpression::REGEX_TYPES . '(?:[*\h\v].*)?\r?$}sx',
                 $this->lines[0]->getContent(),
                 $matches
             );

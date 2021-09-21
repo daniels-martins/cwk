@@ -412,7 +412,7 @@ final class DocParser
      */
     private function match(int $token): bool
     {
-        if (! $this->lexer->isNextToken($token)) {
+        if (!$this->lexer->isNextToken($token)) {
             throw $this->syntaxError($this->lexer->getLiteral($token));
         }
 
@@ -431,7 +431,7 @@ final class DocParser
      */
     private function matchAny(array $tokens): bool
     {
-        if (! $this->lexer->isNextTokenAny($tokens)) {
+        if (!$this->lexer->isNextTokenAny($tokens)) {
             throw $this->syntaxError(implode(' or ', array_map([$this->lexer, 'getLiteral'], $tokens)));
         }
 
@@ -556,7 +556,7 @@ final class DocParser
                     }
                 }
 
-                if (! ($annotation instanceof Attributes)) {
+                if (!($annotation instanceof Attributes)) {
                     continue;
                 }
 
@@ -597,12 +597,12 @@ final class DocParser
                     self::$metadataParser->setTarget(Target::TARGET_PROPERTY);
 
                     foreach (self::$metadataParser->parse($propertyComment, $context) as $annotation) {
-                        if (! $annotation instanceof Enum) {
+                        if (!$annotation instanceof Enum) {
                             continue;
                         }
 
                         $metadata['enum'][$property->name]['value']   = $annotation->value;
-                        $metadata['enum'][$property->name]['literal'] = (! empty($annotation->literal))
+                        $metadata['enum'][$property->name]['literal'] = (!empty($annotation->literal))
                             ? $annotation->literal
                             : $annotation->value;
                     }
@@ -704,7 +704,7 @@ final class DocParser
             $peek = $this->lexer->glimpse();
             if (
                 ($peek === null)
-                || ($peek['type'] !== DocLexer::T_NAMESPACE_SEPARATOR && ! in_array(
+                || ($peek['type'] !== DocLexer::T_NAMESPACE_SEPARATOR && !in_array(
                     $peek['type'],
                     self::$classIdentifiers,
                     true
@@ -779,17 +779,17 @@ final class DocParser
                     : $namespace;
                 $found     = $this->classExists($name);
             } elseif (
-                ! isset($this->ignoredAnnotationNames[$name])
+                !isset($this->ignoredAnnotationNames[$name])
                 && isset($this->imports['__NAMESPACE__'])
                 && $this->classExists($this->imports['__NAMESPACE__'] . '\\' . $name)
             ) {
                 $name  = $this->imports['__NAMESPACE__'] . '\\' . $name;
                 $found = true;
-            } elseif (! isset($this->ignoredAnnotationNames[$name]) && $this->classExists($name)) {
+            } elseif (!isset($this->ignoredAnnotationNames[$name]) && $this->classExists($name)) {
                 $found = true;
             }
 
-            if (! $found) {
+            if (!$found) {
                 if ($this->isIgnoredAnnotation($name)) {
                     return false;
                 }
@@ -797,8 +797,7 @@ final class DocParser
                 throw AnnotationException::semanticalError(sprintf(
                     <<<'EXCEPTION'
 The annotation "@%s" in %s was never imported. Did you maybe forget to add a "use" statement for this annotation?
-EXCEPTION
-                    ,
+EXCEPTION,
                     $name,
                     $this->context
                 ));
@@ -807,7 +806,7 @@ EXCEPTION
 
         $name = ltrim($name, '\\');
 
-        if (! $this->classExists($name)) {
+        if (!$this->classExists($name)) {
             throw AnnotationException::semanticalError(sprintf(
                 'The annotation "@%s" in %s does not exist, or could not be auto-loaded.',
                 $name,
@@ -820,7 +819,7 @@ EXCEPTION
         // that it is loaded
 
         // collects the metadata annotation only if there is not yet
-        if (! isset(self::$annotationMetadata[$name])) {
+        if (!isset(self::$annotationMetadata[$name])) {
             $this->collectAnnotationMetadata($name);
         }
 
@@ -836,8 +835,7 @@ The class "%s" is not annotated with @Annotation.
 Are you sure this class can be used as annotation?
 If so, then you need to add @Annotation to the _class_ doc comment of "%s".
 If it is indeed no annotation, then you need to add @IgnoreAnnotation("%s") to the _class_ doc comment of %s.
-EXCEPTION
-                ,
+EXCEPTION,
                 $name,
                 $name,
                 $originalName,
@@ -857,8 +855,7 @@ EXCEPTION
                 sprintf(
                     <<<'EXCEPTION'
 Annotation @%s is not allowed to be declared on %s. You may only use this annotation on these code elements: %s.
-EXCEPTION
-                    ,
+EXCEPTION,
                     $originalName,
                     $this->context,
                     self::$annotationMetadata[$name]['targets_literal']
@@ -873,7 +870,7 @@ EXCEPTION
             // checks all declared attributes
             foreach (self::$annotationMetadata[$name]['enum'] as $property => $enum) {
                 // checks if the attribute is a valid enumerator
-                if (isset($values[$property]) && ! in_array($values[$property], $enum['value'])) {
+                if (isset($values[$property]) && !in_array($values[$property], $enum['value'])) {
                     throw AnnotationException::enumeratorError(
                         $property,
                         $name,
@@ -889,13 +886,13 @@ EXCEPTION
         foreach (self::$annotationMetadata[$name]['attribute_types'] as $property => $type) {
             if (
                 $property === self::$annotationMetadata[$name]['default_property']
-                && ! isset($values[$property]) && isset($values['value'])
+                && !isset($values[$property]) && isset($values['value'])
             ) {
                 $property = 'value';
             }
 
             // handle a not given attribute or null value
-            if (! isset($values[$property])) {
+            if (!isset($values[$property])) {
                 if ($type['required']) {
                     throw AnnotationException::requiredError(
                         $property,
@@ -910,14 +907,14 @@ EXCEPTION
 
             if ($type['type'] === 'array') {
                 // handle the case of a single value
-                if (! is_array($values[$property])) {
+                if (!is_array($values[$property])) {
                     $values[$property] = [$values[$property]];
                 }
 
                 // checks if the attribute has array type declaration, such as "array<string>"
                 if (isset($type['array_type'])) {
                     foreach ($values[$property] as $item) {
-                        if (gettype($item) !== $type['array_type'] && ! $item instanceof $type['array_type']) {
+                        if (gettype($item) !== $type['array_type'] && !$item instanceof $type['array_type']) {
                             throw AnnotationException::attributeTypeError(
                                 $property,
                                 $originalName,
@@ -928,7 +925,7 @@ EXCEPTION
                         }
                     }
                 }
-            } elseif (gettype($values[$property]) !== $type['type'] && ! $values[$property] instanceof $type['type']) {
+            } elseif (gettype($values[$property]) !== $type['type'] && !$values[$property] instanceof $type['type']) {
                 throw AnnotationException::attributeTypeError(
                     $property,
                     $originalName,
@@ -950,14 +947,13 @@ EXCEPTION
             }
 
             foreach ($values as $property => $value) {
-                if (! isset(self::$annotationMetadata[$name]['constructor_args'][$property])) {
+                if (!isset(self::$annotationMetadata[$name]['constructor_args'][$property])) {
                     throw AnnotationException::creationError(sprintf(
                         <<<'EXCEPTION'
 The annotation @%s declared on %s does not have a property named "%s"
 that can be set through its named arguments constructor.
 Available named arguments: %s
-EXCEPTION
-                        ,
+EXCEPTION,
                         $originalName,
                         $this->context,
                         $property,
@@ -980,14 +976,13 @@ EXCEPTION
         $instance = new $name();
 
         foreach ($values as $property => $value) {
-            if (! isset(self::$annotationMetadata[$name]['properties'][$property])) {
+            if (!isset(self::$annotationMetadata[$name]['properties'][$property])) {
                 if ($property !== 'value') {
                     throw AnnotationException::creationError(sprintf(
                         <<<'EXCEPTION'
 The annotation @%s declared on %s does not have a property named "%s".
 Available properties: %s
-EXCEPTION
-                        ,
+EXCEPTION,
                         $originalName,
                         $this->context,
                         $property,
@@ -997,7 +992,7 @@ EXCEPTION
 
                 // handle the case if the property has no annotations
                 $property = self::$annotationMetadata[$name]['default_property'];
-                if (! $property) {
+                if (!$property) {
                     throw AnnotationException::creationError(sprintf(
                         'The annotation @%s declared on %s does not accept any values, but got %s.',
                         $originalName,
@@ -1025,13 +1020,13 @@ EXCEPTION
     {
         $values = [];
 
-        if (! $this->lexer->isNextToken(DocLexer::T_OPEN_PARENTHESIS)) {
+        if (!$this->lexer->isNextToken(DocLexer::T_OPEN_PARENTHESIS)) {
             return $values;
         }
 
         $this->match(DocLexer::T_OPEN_PARENTHESIS);
 
-        if (! $this->lexer->isNextToken(DocLexer::T_CLOSE_PARENTHESIS)) {
+        if (!$this->lexer->isNextToken(DocLexer::T_CLOSE_PARENTHESIS)) {
             $values = $this->Values();
         }
 
@@ -1089,7 +1084,7 @@ EXCEPTION
     {
         $identifier = $this->Identifier();
 
-        if (! defined($identifier) && strpos($identifier, '::') !== false && $identifier[0] !== '\\') {
+        if (!defined($identifier) && strpos($identifier, '::') !== false && $identifier[0] !== '\\') {
             [$className, $const] = explode('::', $identifier);
 
             $pos          = strpos($className, '\\');
@@ -1098,7 +1093,7 @@ EXCEPTION
             $loweredAlias = strtolower($alias);
 
             switch (true) {
-                case ! empty($this->namespaces):
+                case !empty($this->namespaces):
                     foreach ($this->namespaces as $ns) {
                         if (class_exists($ns . '\\' . $className) || interface_exists($ns . '\\' . $className)) {
                             $className = $ns . '\\' . $className;
@@ -1139,7 +1134,7 @@ EXCEPTION
          */
         if (
             $this->identifierEndsWithClassConstant($identifier) &&
-            ! $this->identifierStartsWithBackslash($identifier)
+            !$this->identifierStartsWithBackslash($identifier)
         ) {
             return substr($identifier, 0, $this->getClassConstantPositionInIdentifier($identifier));
         }
@@ -1148,7 +1143,7 @@ EXCEPTION
             return substr($identifier, 1, $this->getClassConstantPositionInIdentifier($identifier) - 1);
         }
 
-        if (! defined($identifier)) {
+        if (!defined($identifier)) {
             throw AnnotationException::semanticalErrorConstants($identifier, $this->context);
         }
 
@@ -1181,7 +1176,7 @@ EXCEPTION
     private function Identifier(): string
     {
         // check if we have an annotation
-        if (! $this->lexer->isNextTokenAny(self::$classIdentifiers)) {
+        if (!$this->lexer->isNextTokenAny(self::$classIdentifiers)) {
             throw $this->syntaxError('namespace separator or identifier');
         }
 
@@ -1192,7 +1187,7 @@ EXCEPTION
         while (
             $this->lexer->lookahead !== null &&
             $this->lexer->lookahead['position'] === ($this->lexer->token['position'] +
-            strlen($this->lexer->token['value'])) &&
+                strlen($this->lexer->token['value'])) &&
             $this->lexer->isNextToken(DocLexer::T_NAMESPACE_SEPARATOR)
         ) {
             $this->match(DocLexer::T_NAMESPACE_SEPARATOR);
@@ -1367,7 +1362,7 @@ EXCEPTION
 
         if (
             $peek['type'] === DocLexer::T_EQUALS
-                || $peek['type'] === DocLexer::T_COLON
+            || $peek['type'] === DocLexer::T_COLON
         ) {
             if ($this->lexer->isNextToken(DocLexer::T_IDENTIFIER)) {
                 $key = $this->Constant();
@@ -1436,14 +1431,14 @@ EXCEPTION
 
             foreach (self::$annotationMetadata[$name]['constructor_args'] as $property => $parameter) {
                 $position = $parameter['position'];
-                if (isset($values[$property]) || ! isset($positionalArguments[$position])) {
+                if (isset($values[$property]) || !isset($positionalArguments[$position])) {
                     continue;
                 }
 
                 $values[$property] = $positionalArguments[$position];
             }
         } else {
-            if (count($positionalArguments) > 0 && ! isset($values['value'])) {
+            if (count($positionalArguments) > 0 && !isset($values['value'])) {
                 if (count($positionalArguments) === 1) {
                     $value = array_pop($positionalArguments);
                 } else {

@@ -40,12 +40,12 @@ class CreateUserRequest extends FormRequest
 
     public function messages()
     {
-       return [
-           'fname.required' => "The first name field cannot be empty ",
+        return [
+            'fname.required' => "The first name field cannot be empty ",
             'lname.required' => "The last name field cannot be empty ",
             'email.required' => 'You can\'t leave the  :attribute field empty',
             'name.required' => 'You can\'t leave the user:attribute field empty',
-       ];
+        ];
     }
 
     protected function prepareForValidation()
@@ -54,11 +54,11 @@ class CreateUserRequest extends FormRequest
             // 'password' => Hash::make($this->password),
         ]);
     }
-    
+
     public function someShit()
     {
         // this was in the store method of my regUsercontroller
-           // $user = User::create([
+        // $user = User::create([
         //     'fname' => $request->fname,
         //     'lname' => $request->lname,
         //     'name' => $request->name,
@@ -66,7 +66,4 @@ class CreateUserRequest extends FormRequest
         //     'password' => Hash::make($request->password),
         // ]);
     }
-    
-    
-    
 }

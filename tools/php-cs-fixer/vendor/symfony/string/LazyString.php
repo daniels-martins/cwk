@@ -153,12 +153,12 @@ class LazyString implements \Stringable, \JsonSerializable
             }
 
             $class = $class->name;
-            $method = $r->name;
+            $method = $r->username;
         } else {
             $class = get_debug_type($callback);
             $method = '__invoke';
         }
 
-        return $class.'::'.$method;
+        return $class . '::' . $method;
     }
 }

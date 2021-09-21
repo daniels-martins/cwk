@@ -51,6 +51,7 @@
                             <li><a href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a></li>
                             <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                             <li> <a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            <li> <a href="#"><i class="fab fa-whatsapp" style="color: red;"></i></a></li>
                         </ul>
                     </div>
                     <div class="container">
@@ -58,8 +59,17 @@
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left">
                                     <ul>
-                                        <li>needhelp@gmail.com</li>
-                                        <li>666 7475 25252</li>
+                                        <li> 
+                                            <a href="#"><i class="fa fa-envelope" style="color: blue;"></i></a>support@kdtech.com
+                                        </li>
+                                        <li>
+                                            <i class="fal fa-phone-alt"></i>
+                                            <!-- <i class="fas fa-phone"></i> -->
+                                            <a href="#"><i class="fa fa-mobile-alt" style="color: blue;"></i></a>+234 704 5063 380
+                                        </li>
+                                        <li> <a href="#"><i class="fab fa-whatsapp" 
+                                            style="color: blue;"></i></a>+234 704 5063 380
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="header-info-right">
@@ -100,6 +110,7 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a href="/">Home</a></li>
+                                        <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                                         <li><a href="{{ route('about') }}">About</a></li>
                                         <li><a href="{{ route('courses') }}">Courses</a></li>
                                         <li><a href="{{ route('instructors') }}">Instructors</a></li>

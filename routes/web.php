@@ -50,7 +50,7 @@ Route::view('/elements', 'elements')->middleware(['auth', 'verified'])->name('el
 
 Route::view('/instructors', 'instructors')->middleware(['auth', 'verified'])->name('instructors');
 
-Route::view('/courses', 'courses')->middleware(['auth', 'verified'])->name( 'courses');
+Route::view('/courses', 'courses')->middleware(['auth', 'verified'])->name('courses');
 
 Route::view('/blog_details', 'blog_details')->middleware(['auth', 'verified'])->name('blog_details');
 
@@ -58,10 +58,10 @@ Route::view('/blog', 'blog')->middleware(['auth', 'verified'])->name('blog');
 
 Route::view('/careers', 'careers')->middleware(['auth', 'verified'])->name('careers');
 
-Route::view('/dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
+Route::view('/dashboard', 'auth.checkout1')->middleware(['auth', 'verified'])->name('dashboard');
 
 // secondary routes
-Route::get('/our_plans', fn() => 'our plans route page')->name('our_plans');
+Route::get('/our_plans', fn () => 'our plans route page')->name('our_plans');
 Route::get('/free_trial', fn () => 'our free_trial route page')->name('free_trial');
 Route::get('/coming_soon', fn () => 'our coming_soon route page')->name('coming_soon');
 Route::get('/todo', fn () => 'our todo route page')->name('todo');

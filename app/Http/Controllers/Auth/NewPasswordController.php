@@ -36,9 +36,9 @@ class NewPasswordController extends Controller
     public function store(Request $request)
     {
         $user = User::where('email', $request->email)->get();
-        $dbToken = DB::table('password_resets')->where('email', $request->email)->first();
+        $dbToken = DB::table('password_resets')->where('email', $request->email)->latest()->first();
 
-        // dd(Hash::check($dbToken->raw_url_token, $dbToken->token))
+        // dd(Hash::check($dbToken->raw_url_token, $dbToken->token));
         // (Hash::check($request->token, $dbToken->token)) ? dd('thesame') : dd('not the same');
 
         $request->validate([

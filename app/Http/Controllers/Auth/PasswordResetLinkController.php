@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 
 class PasswordResetLinkController extends Controller
@@ -37,7 +39,19 @@ class PasswordResetLinkController extends Controller
         // to send the link, we will examine the response then see the message we
         // need to show to the user. Finally, we'll send out a proper response.
         $status = Password::sendResetLink(
-            $request->only('email')
+            $request->only('email'),
+            fn ($user, $token) =>
+                (DB::table('password_resets')
+                    ->updateOrInsert(
+                        ['email' => $user->email],
+                        [ // the raw token sent to the user's email as seen in the url
+                            'raw_url_token' => $token,
+                            // the token that will be saved in the db for validation
+                            'token' => Hash::make($token)
+                        ]
+                    ))  
+                    ? $user->sendPasswordResetNotification($token) 
+                    : null
         );
 
         return ($status == Password::RESET_LINK_SENT)

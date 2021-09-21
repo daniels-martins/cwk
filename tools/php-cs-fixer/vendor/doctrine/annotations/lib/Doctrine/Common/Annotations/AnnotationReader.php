@@ -110,7 +110,7 @@ class AnnotationReader implements Reader
     {
         if (
             extension_loaded('Zend Optimizer+') && (ini_get('zend_optimizerplus.save_comments') === '0' ||
-            ini_get('opcache.save_comments') === '0')
+                ini_get('opcache.save_comments') === '0')
         ) {
             throw AnnotationException::optimizerPlusSaveComments();
         }
@@ -317,7 +317,7 @@ class AnnotationReader implements Reader
 
         foreach ($class->getTraits() as $trait) {
             if (
-                ! $trait->hasMethod($method->getName())
+                !$trait->hasMethod($method->getName())
                 || $trait->getFileName() !== $method->getFileName()
             ) {
                 continue;
@@ -342,7 +342,7 @@ class AnnotationReader implements Reader
         $traitImports = [];
 
         foreach ($class->getTraits() as $trait) {
-            if (! $trait->hasProperty($property->getName())) {
+            if (!$trait->hasProperty($property->getName())) {
                 continue;
             }
 
@@ -366,7 +366,7 @@ class AnnotationReader implements Reader
         $annotations            = $this->preParser->parse($reflection->getDocComment(), $type . ' ' . $name);
 
         foreach ($annotations as $annotation) {
-            if (! ($annotation instanceof IgnoreAnnotation)) {
+            if (!($annotation instanceof IgnoreAnnotation)) {
                 continue;
             }
 

@@ -138,18 +138,18 @@ final class DocBlock
 
         if ('' === $lineContent) {
             $this->lines = [
-                new Line('/**'.$lineEnd),
-                new Line($indent.' *'.$lineEnd),
-                new Line($indent.' */'),
+                new Line('/**' . $lineEnd),
+                new Line($indent . ' *' . $lineEnd),
+                new Line($indent . ' */'),
             ];
 
             return;
         }
 
         $this->lines = [
-            new Line('/**'.$lineEnd),
-            new Line($indent.' * '.$lineContent.$lineEnd),
-            new Line($indent.' */'),
+            new Line('/**' . $lineEnd),
+            new Line($indent . ' * ' . $lineContent . $lineEnd),
+            new Line($indent . ' */'),
         ];
     }
 
@@ -175,7 +175,7 @@ final class DocBlock
             $lineContent = $this->getSingleLineDocBlockEntry(array_shift($usefulLines));
         }
 
-        $this->lines = [new Line('/** '.$lineContent.' */')];
+        $this->lines = [new Line('/** ' . $lineContent . ' */')];
     }
 
     public function getAnnotation(int $pos): ?Annotation

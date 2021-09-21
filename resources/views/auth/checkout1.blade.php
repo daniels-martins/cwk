@@ -31,58 +31,80 @@
 	}
 </style>
 @endsection
+@section('header_scripts')
+@endsection
 @section('main')
 <main>
-	<div class="row">
-		<div class="col-md-3 ">
-			<!-- spacer -->
-			@if(Session::has('status'))
-			{{-- {{ 'what do u mean? Good!' }} --}}
-			@else
-			{{-- {{ 'Bad one? bad!' }} --}}
+	<div class="row p-5">
+		<!-- spacer -->
+		@php $user = json_encode(auth()->user()) @endphp
+		<!-- {{ var_dump($user) }} -->
 
-			@endif
+		<div class="col-md-3"></div>
+
+		<!-- main content -->
+		<div class="col-sm-12  col-md-6  message height-full">
+			<p class="message m-5">
+				<strong class="top">Hola! <span class="laksaman">{{ auth()->user()->username }}, </span></strong> <br>
+				<br><strong class="sub">Almost there</strong><br> <br> All that's left is a token of N1,050 and you're well on
+				your
+				journey to being a world class web developer
+			</p>
+
+			<form class="m-5">
+				<script src="https://checkout.flutterwave.com/v3.js"></script>
+				<input type="hidden" user="{{ $user }}" name='data' amount="1050" redirect_url={{ route('thankyou') }} />
+				<button type="button" class="btn_custom btn" onClick="makePayment()">Pay Now</button>
+			</form>
 		</div>
-
-		<div class="col-sm-12  col-md-8  message height-full">
-			<div class="px-5">
-				<p class="message">
-					<strong class="top">Welcome <span class="laksaman">{{ auth()->user()->name }} </span></strong> <br> <br>
-				<p class="alert-success text-success spacious-1">
-					@If (session('status')){{ session('status') }} @endif
-				</p>
-					<strong class="sub">Almost there</strong> All that's left is a token of N1,050 and you're well on your journey to being a world class web developer
-				</p>
-
-				<form method="POST" {{-- action="https://api.flutterwave.com/v3/payments"  --}} 
-				action="{{ route('prep_flutterwave') }}"
-				class="my-3">
-					@csrf
-					<div class="form-group">
-						<!-- this is what the server will process -->
-						<input type="hidden" value="1050" name="amount" />
-						{{-- <p class="alert-success text-success spacious-1">
-							@If (session('status')){{ __(session('status')) }} @endif
-						</p> --}}
-						<p class="alert-danger text-danger spacious-1"> @error('email'){{ 'Oops! '. $message }}@enderror
-						</p>
-					</div>
-
-					<div class="col-xs-10 my-5 text-center">
-						<button type="submit" class="btn_custom">
-							Pay
-						</button>
-					</div>
-
-
-				</form>
-			</div>
-
-		</div>
-
 	</div>
-
-
 </main>
+<script src="https://checkout.flutterwave.com/v3.js"></script>
+<script>
+	function makePayment() {
+		// declare our props
+		const databox = document.querySelector('[name="data"]')
+		let user = databox.getAttribute('user');
+		let amount = databox.getAttribute('amount');
+		let redirect_url = databox.getAttribute('redirect_url');
+
+		
+		user = JSON.parse(user);
+		console.log(user.lname);
+		// console.log(date = new Date());
+		let date = new Date();
+		const uid = date.getTime();
+		console.log(date.getTime());
+		
+
+		FlutterwaveCheckout({
+			// public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X",
+			public_key: "FLWPUBK_TEST-ac7fcc09d4b71a76233e596b138c5d00-X",
+			tx_ref: "RX001_"+ uid,
+			amount: amount,
+			currency: 'NGN',
+			payment_options: "card",
+			redirect_url: redirect_url,
+			meta: {
+				consumer_id: user.id,
+				consumer_mac: "92a3-912ba-1192a" + user.username,
+			},
+			customer: {
+				email: user.email,
+				phone_number: user.phone,
+				fullname: user.fname + ' ' + user.lname,
+				first_name: user.fname,
+				last_name: user.lname
+			},
+			// callback: (data) => console.log(data),
+		onclose:  () => {/* close modal */},
+			customizations: {
+				title: "Kaydee Tech",
+				description: "Payment for items in cart",
+				logo: "https://images.assetsdelivery.com/compings_v2/mmfcreative/mmfcreative2101/mmfcreative210106540.jpg",
+			},
+		});
+	}
+</script>
 
 @endsection

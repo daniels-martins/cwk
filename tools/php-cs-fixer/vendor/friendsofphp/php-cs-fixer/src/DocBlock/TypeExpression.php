@@ -122,14 +122,14 @@ final class TypeExpression
     {
         while ('' !== $value && false !== $value) {
             Preg::match(
-                '{^'.self::REGEX_TYPES.'$}x',
+                '{^' . self::REGEX_TYPES . '$}x',
                 $value,
                 $matches
             );
 
             $this->types[] = $matches['type'];
             $value = Preg::replace(
-                '/^'.preg_quote($matches['type'], '/').'(\h*\|\h*)?/',
+                '/^' . preg_quote($matches['type'], '/') . '(\h*\|\h*)?/',
                 '',
                 $value
             );

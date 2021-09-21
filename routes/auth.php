@@ -11,7 +11,7 @@ use App\Http\Controllers\Auth\ConfirmablePasswordController as ConfirmablePasswo
 use App\Http\Controllers\Auth\AuthenticatedSessionController as AuthenticatedSession;
 use App\Http\Controllers\FlutterwaveController as Flutterwave;
 use App\Http\Controllers\Auth\EmailVerificationPromptController as EmailVerificationPrompt;
-use App\Http\Controllers\Auth\EmailVerificationNotificationController as EmailVerificationNotif;
+use App\Http\Controllers\Auth\EmailVerificationNotificationController as EmailVerificationNotify;
 
 Route::get('/register', [RegisteredUser::class, 'create'])
   ->middleware('guest')
@@ -63,7 +63,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 // ------------------------------------------------------------------------------------
 
 
-Route::post('/email/verification-notification', [EmailVerificationNotif::class, 'store'])
+Route::post('/email/verification-notification', [EmailVerificationNotify::class, 'store'])
   ->middleware(['auth', 'throttle:6,1'])
   ->name('verification.send');
 
@@ -82,7 +82,7 @@ Route::post('/logout', [AuthenticatedSession::class, 'destroy'])
 // udo auth routes
 
 Route::get('thankyou', [Payment::class, '__invoke'])
-  ->middleware('auth')
+  ->middleware(['auth', 'verified'])
   ->name('thankyou');
 
 // for flutterwave
