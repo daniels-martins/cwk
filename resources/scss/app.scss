@@ -4,7 +4,9 @@
 .spacious-1{
   letter-spacing: .1rem;
 }
-
+.mt-2{
+  margin-top: 20rem;
+}
 .height-full{
   height: 100vh;
 }
@@ -41,6 +43,42 @@ font-family: 'laksaman';
 // 1. checkout1
 .btn-lg{
   padding: 10px 30px;
+}
+.btn-sm{
+  padding: 1.5rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0rem .3rem .2rem #2F4193;
+}
+
+.sitelogo{
+  width: 100px;
+}
+
+.sitelogo_sm_header{
+  margin: -2.5rem 3rem;
+  width: 100px;
+}
+
+
+
+.sitelogo_sm_header_v2{
+  margin: -1.5rem 1rem;
+  width: 90px;
+  height: 70px;
+}
+
+.sitelogo_sm{
+    width: 100px;
+  height: 60px;
+}
+
+.sitelogo_sm_footer{
+  height: 40px;
+  border-radius: 100%;
+}
+
+.block{
+  display: inline-block;
 }
 
 .btn_custom{

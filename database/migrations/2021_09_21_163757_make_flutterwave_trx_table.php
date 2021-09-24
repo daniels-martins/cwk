@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ModifyNameColumnToUsernameColumnInUsersTable extends Migration
+class MakeFlutterwaveTrxTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class ModifyNameColumnToUsernameColumnInUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->renameColumn('name', 'username');
+        Schema::create('flutterwave_trx', function (Blueprint $table) {
+            $table->id();
+            $table->char('trx_ref_points', 50);
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class ModifyNameColumnToUsernameColumnInUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('flutterwave_trx');
     }
 }

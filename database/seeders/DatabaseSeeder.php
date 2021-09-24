@@ -19,7 +19,9 @@ class DatabaseSeeder extends Seeder
 		// using additional seeders
 		$this->call(
 			[
-				// FeesTableSeeder::class,
+				// the FeesTableSeeder can always be run, it has a check in its definition
+				// it knows when to create a seeder or not by itself...AI
+				FeesTableSeeder::class,
 			]
 		);
 

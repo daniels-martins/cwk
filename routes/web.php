@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\DashboardController as Dashboard;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::view('/', 'landing');
-Route::view('/', 'index');
+Route::view('/', 'index')->name('landingPage');
 Route::view('/home', 'index');
 
 
@@ -36,10 +37,10 @@ Route::view('/contact', 'contact')->name('contact');
 
 // checkout routes
 
-
+// the webapp default checkout page which is actually currently undefined
 Route::get('/checkout', [CheckoutController::class, 'index'])->middleware(['auth', 'verified'])->name('checkout.index');
 
-
+// this is the prerequisite checkout page that's why it has 1 appended to it...
 Route::get('/checkout1', [CheckoutController::class, 'index1'])->middleware(['auth', 'verified'])->name('checkout1.index');
 
 
@@ -48,17 +49,19 @@ Route::get('/checkout1', [CheckoutController::class, 'index1'])->middleware(['au
 
 Route::view('/elements', 'elements')->middleware(['auth', 'verified'])->name('elements');
 
-Route::view('/instructors', 'instructors')->middleware(['auth', 'verified'])->name('instructors');
+Route::view('/instructors', 'instructors')->middleware(['auth', 'verified', 'userpay'])->name('instructors');
 
-Route::view('/courses', 'courses')->middleware(['auth', 'verified'])->name('courses');
+Route::view('/courses', 'courses')->middleware(['auth', 'verified', 'userpay'])->name('courses');
 
-Route::view('/blog_details', 'blog_details')->middleware(['auth', 'verified'])->name('blog_details');
+Route::view('/blog_details', 'blog_details')->middleware(['auth', 'verified', 'userpay'])->name('blog_details');
 
-Route::view('/blog', 'blog')->middleware(['auth', 'verified'])->name('blog');
+Route::view('/blog', 'blog')->middleware(['auth', 'verified', 'userpay'])->name('blog');
 
-Route::view('/careers', 'careers')->middleware(['auth', 'verified'])->name('careers');
+Route::view('/careers', 'careers')->middleware(['auth', 'verified', 'userpay'])->name('careers');
 
-Route::view('/dashboard', 'auth.checkout1')->middleware(['auth', 'verified'])->name('dashboard');
+// Route::view('/dashboard', 'auth.checkout1')->middleware(['auth', 'verified', 'userpay'])->name('dashboard');
+Route::get('/dashboard', [Dashboard::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
 
 // secondary routes
 Route::get('/our_plans', fn () => 'our plans route page')->name('our_plans');

@@ -14,6 +14,14 @@ class FeesTableSeeder extends Seeder
 	 */
 	public function run()
 	{
+		$regFee = Fee::where([
+			['title', 'registration fee'],
+			['cost', '1050'],
+		])->get();
+
+		if ($regFee) {
+			return true;
+		}
 		Fee::create([
 			'cost' => 1050,
 			'title' => 'registration fee',

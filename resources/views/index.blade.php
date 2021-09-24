@@ -21,7 +21,7 @@
                                     <h1 data-animation="fadeInLeft" data-delay=".4s">The New Way To Learn Coding Properly With Us!</h1>
                                     <!-- Hero-btn -->
                                     <div class="hero__btn">
-                                        <a href="industries.html" class="btn hero-btn"  data-animation="fadeInLeft" data-delay=".8s">Don't Dull... Lets go</a>
+                                        <a href="{{ route('register') }}" class="btn hero-btn"  data-animation="fadeInLeft" data-delay=".8s">Don't Dull... Lets go</a>
                                     </div>
                                 </div>
                             </div>

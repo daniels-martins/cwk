@@ -17,7 +17,8 @@ class CheckoutController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a custom designed checkoutpage on registration for users to pay b4 they
+     * can access our services.
      *
      * @return \Illuminate\Http\Response
      */

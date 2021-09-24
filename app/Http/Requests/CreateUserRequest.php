@@ -30,7 +30,7 @@ class CreateUserRequest extends FormRequest
         return [
             'fname' => 'required|string|max:255',
             'lname' => 'required|string|max:255',
-            'name' => 'required|string|max:25|unique:users',
+            'username' => 'required|string|max:25|unique:users',
             'email' => 'required|string|email|max:55|unique:users',
             'password' => ['required', 'confirmed', Password::defaults()],
             'password_confirmation' => 'required_with:password|same:password'
@@ -44,7 +44,7 @@ class CreateUserRequest extends FormRequest
             'fname.required' => "The first name field cannot be empty ",
             'lname.required' => "The last name field cannot be empty ",
             'email.required' => 'You can\'t leave the  :attribute field empty',
-            'name.required' => 'You can\'t leave the user:attribute field empty',
+            'username.required' => 'You can\'t leave the :attribute field empty',
         ];
     }
 

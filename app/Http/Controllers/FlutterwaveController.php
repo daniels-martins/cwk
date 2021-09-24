@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Storage;
 
 class FlutterwaveController extends Controller
 {
-
-	protected $fsk, $fpk = 'FLWSECK_TEST-163cf59f36bed755146814f98e629fcf-X';
+/**@var $fsk refers to my flutterwave secure key which also functions as my public key in this app */
+	protected $fsk = 'FLWSECK_TEST-163cf59f36bed755146814f98e629fcf-X';
 	/**
 	 * invoke
 	 *
@@ -36,10 +36,6 @@ class FlutterwaveController extends Controller
 			'email' => $customerAsObj->email,
 			'phone' => $customerAsObj->phone,
 		];
-		// dd($user);
-		// dd($customerAsObj);
-
-		// dd($customerAsObj->trx_ref);
 		// flutter request
 		$flutterRequest = [
 			'tx_ref' => time(),
@@ -59,51 +55,13 @@ class FlutterwaveController extends Controller
 				'description' => 'Payment for enrollment into KayDee Tech Web Development Programme '
 			]
 		];
-
-		// call flutterwave endpoint using curl
-		// $curl  =  curl_init('https://api.flutterwave.com/v3/payments');
-		// 	curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
-		// 		curl_setopt_array($curl, [
-		// 			CURLOPT_RETURNTRANSFER => true,
-		// 			CURLOPT_ENCODING => '',
-		// 			CURLOPT_MAXREDIRS => 10,
-		// 			CURLOPT_FOLLOWLOCATION => true,
-		// 			CURLOPT_TIMEOUT => 0,
-		// 			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-		// 			CURLOPT_POSTFIELDS =>$flutterRequest,
-		// 			CURLOPT_HTTPHEADER => [
-		// 				'Authorization: Bearer FLWSECK_TEST-163cf59f36bed755146814f98e629fcf-X',
-		// 				'content-Type: content/json' ,
-		// 				'accept: application/json',
-		// 			]
-
-		// 		]);
-		// 	$response = curl_exec($curl);
-		// 	curl_close($curl);
-		// 	echo '<pre>' . $response .'</pre>';
-		// echo '<pre>' . $flutterRequest . '</pre>';
-
-
-
-
-		// $response = Http::withHeaders([
-		// 	'X-content-Type' => 'application/json',
-		// ])->acceptJson()
-		// 	->withToken('FLWSECK_TEST-163cf59f36bed755146814f98e629fcf-X')
-		// 	->post('http://api.flutterwave.com/v3/payments', $flutterRequest);
-
-		// // 	echo '<pre>' . $response .'</pre>';
-		// echo '<pre>';
-		// print_r($flutterRequest);
-		// echo '</pre>';
-
-		// using axios 
 	}
 	public function __invoke(Request $request)
 	{
+		$user = $request->user();
 		// dd(request()->all());
 		$amount = $request->amount;
-    $referenceno = time();
+    $ref_no = time();
     // $currency = "NGN";
     $redirect_url = route('thankyou');
     $authorization = 'Bearer'." ".$this->fsk;
@@ -114,7 +72,7 @@ class FlutterwaveController extends Controller
             'info'=> 'Subbscription fee' , 
             'user_id'=> request()->user()->id,
         ]),
-        'reference' => $referenceno,
+        'reference' => $ref_no,
     ];
 
     $client = new \GuzzleHttp\Client();
@@ -126,8 +84,9 @@ class FlutterwaveController extends Controller
             'Authorization' => $authorization,
         ],
         'form_params' => ([
-                'public_key'=>$this->fpk,
-                "tx_ref"=> $referenceno,
+					'public_key' => 'FLWPUBK_TEST - ac7fcc09d4b71a76233e596b138c5d00 - X',
+                // 'public_key'=>$this->fsk,
+                "tx_ref"=> $ref_no,
                 "amount"=>$amount,
                 // "currency"=>$currency,
                 "redirect_url"=>$redirect_url,

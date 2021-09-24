@@ -56,11 +56,9 @@
 				</p>
 			</div>
 
-			<div>
-				<a href="/" class="btn genric-btn radius success">Go home</a>
+			<div class='text-center'> <br>
+				<a href="/" class="block btn btn-sm ">Go home</a>
 			</div>
-
-
 
 		</div>
 

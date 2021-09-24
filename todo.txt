@@ -1,0 +1,37 @@
+todo
+
+1. incorporation 10 mins (edit all 'megakit' text)...done
+
+2. Learn more button should link to reg page ...done
+
+3. use learn more btn in the header__?
+
+4. reduce the margin and padding for the brands.__?
+
+5. leave the blog..ok
+
+6. try to enable keyboard vertical scrolling ...done
+
+bonus Point: put animations for the elements
+try and see if u can implement that moving text with css and js__sec
+
+you just changed the url of 
+from
+<link href="/raw_assets/main/themez/css/animate.css" rel="stylesheet" type="text/css"/>
+to
+<link href="/raw_assets/main/vendor/animate/css/animate.css" rel="stylesheet" type="text/css"/>
+
+NB:
+1. the following files are redundant
+
+
+=======================================
+UI
+ON SIGNUP
+1, queue the email sending process so it doesn't take time__sec()
+ON SIGNUP EMAIL CONFIRMATION
+1. CREATE A PAGE THAT tells the user congrats on activation/verification of email
+1b. an email should be sent to the user in respect to 1a. the email should say, now,
+ u can explore our services ---done('implemented with a bstrap alert')
+
+2. Once verified, it should automatically take the user to the dashboard for payment---done

@@ -36,7 +36,7 @@ window.onload = ()=>{
         </div>
 
         <div class="one-frm">
-            <input class="@error('name')invalid-block @enderror" type="text" name="name" placeholder="Choose a Username" requiredsz="" value="{{ old('name') }}">
+            <input class="@error('username')invalid-block @enderror" type="text" name="username" placeholder="Choose a Username" requiredsz="" value="{{ old('name') }}">
             @error('name')
             <strong class="text-center error mt--1">Oops! {{ $errors->first('name') }}</strong>
             @enderror

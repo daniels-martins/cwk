@@ -95,30 +95,40 @@
                 </div>
                 <div class="header-bottom header-sticky">
                     <!-- Logo -->
-                    <div class="logo d-none d-lg-block">
-                        <a href="index.html"><img src="/raw_assets/onlineedu/assets/img/logo/logo.png" alt=""></a>
+                    <div class="logo d-none d-lg-block" style="background-color: transparent;">
+                      <a href="/"><img src="/storage/logo/kaydeeLogo.jpg" alt="sitelogo" class="sitelogo_sm_header" ></a>
                     </div>
                     <div class="container">
                         <div class="menu-wrapper">
                             <!-- Logo -->
                             <div class="logo logo2 d-block d-lg-none">
-                                <a href="index.html"><img src="/raw_assets/onlineedu/assets/img/logo/logo.png"
-                                        alt=""></a>
+                                <a href="/"><img src="/storage/logo/kaydeeLogo.jpg" alt="sitelogo" class="sitelogo_sm_header_v2" ></a>
                             </div>
                             <!-- Main-menu -->
                             <div class="main-menu d-none d-lg-block">
                                 <nav>
+                                    <!-- <img src="storage/logo/kaydeeLogo.jpg"  class= 'sitelogo_sm' alt="sitelogo_sm"> -->
                                     <ul id="navigation">
+                                        {{-- <a href="/">
+                                            <img class="sitelogo" src="/storage/logo/kaydeeLogo.jpg" alt="logo" />
+                                        </a> --}}
+                                       
                                         <li><a href="/">Home</a></li>
                                         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                                        <li><a href="{{ route('about') }}">About</a></li>
-                                        <li><a href="{{ route('courses') }}">Courses</a></li>
-                                        <li><a href="{{ route('instructors') }}">Instructors</a></li>
                                         <li><a href="{{ route('blog') }}">Blog</a>
                                             <ul class="submenu">
                                                 <li><a href="{{ route('blog') }}">Blog</a></li>
                                                 <li><a href="{{ route('blog_details') }}">Blog Details</a></li>
                                                 <li><a href="{{ route('elements') }}">Element</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="{{ route('about') }}">More</a>
+                                            <ul class="submenu">
+                                                <li><a href="{{ route('about') }}">About</a></li>
+                                                <li><a href="{{ route('courses') }}">Courses</a></li>
+                                                <li><a href="{{ route('instructors') }}">Instructors</a></li>
+                                                
                                             </ul>
                                         </li>
                                         <li><a href="{{ route('contact') }}">Contact</a></li>
@@ -271,7 +281,7 @@
                                     Copyright &copy;
                                     <script>document.write(new Date().getFullYear());</script> All rights reserved |
                                     This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a
-                                        href="https://colorlib.com" target="_blank">Colorlib</a>
+                                        href="https://colorlib.com" target="_blank"><img src="/storage/logo/kaydeeLogo.jpg" alt="site_logo" class="sitelogo_sm_footer" /></a>
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 </p>
                             </div>

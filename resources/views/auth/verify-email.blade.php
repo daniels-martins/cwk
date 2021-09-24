@@ -37,8 +37,14 @@
         </div>
 
         <div class="my-5 col-md-4 message">
+
+            @if (Session::has('email_resend_status'))
+            <div class="alert alert-info">
+                {{ Session::get('email_resend_status') }}
+            </div>
+            @endif
             <p class="message" >
-                <strong class="top">Thanks for signing up! </strong> <br> Before getting started, could you verify your email address by clicking on the link we just emailed to you  <hr>
+                <strong class="top">Thanks for signing up! </strong> <br><br>Before getting started  <b> {{ strtoupper(auth()->user()->fname) }},</b> could you verify your email address by <b> clicking on the link we just emailed you</b>  <hr>
                 <strong class="sub"> Didn't get the mail? </strong>
                 Don't worry
                 If you didn't receive the email, feel free to request a new one, we will gladly send you another.
@@ -52,7 +58,7 @@
                     </div>
                 </form>
 
-                <form method="POST" action="{{ route('logout') }}" class="my-5">
+                <form method="POST" action="{{ route('logout') }}" class="my-3">
                     @csrf
 
                     <button type="submit" class="genric-btn radius danger">

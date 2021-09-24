@@ -55,10 +55,15 @@ Route::get('/email/verify', function () {
 // Route::get('/verify-email/{id}/{hash}', [VerifyEmail::class, '__invoke'])
 //   ->middleware(['auth', 'signed', 'throttle:6,1'])
 //   ->name('verification.verify');
+
+// this route should flash a data to the session to congratulate the user for verifying 
+// their email with us
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
   $request->fulfill();
 
-  return redirect('/home');
+  return redirect('dashboard')->with(
+    'email_verified_status',
+    'Congratulations, your email has been verified!');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 // ------------------------------------------------------------------------------------
 
@@ -87,5 +92,5 @@ Route::get('thankyou', [Payment::class, '__invoke'])
 
 // for flutterwave
 Route::post('prep_flutterwave', [Flutterwave::class, '__invoke'])
-  ->middleware('auth')
+  ->middleware('auth','verified')
   ->name('prep_flutterwave');
