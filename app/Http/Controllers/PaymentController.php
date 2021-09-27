@@ -50,29 +50,29 @@ class PaymentController extends Controller
              * */
             
             $expectedFee = DB::table('fees')->where('title', 'REGISTRATION FEE')->pluck('cost')->first();
-            dd($expectedFee, $resData);
 
             // {udo refactor this code to use exceptions instead of returning false on failure}
             // verify the fee paid by the user to us via flutterwave
             if ($resData->amount !== $expectedFee) return dd('amount is false');
-            if ($resData->charged_amount < $expectedFee) return dd('charged amount is false');
+            if ($resData->charged_amount !== $resData->amount) return dd('charged amount is false');
+            
+            
             //  this one below is unnecessary
-            // NB: $resData->amount_settled refers to the amount my coy will receive 4rm FW after their charges(>=1%) have been deducted. this is usually smaller than the expectedFee
+            // NB: $resData->amount_settled refers to the amount my coy will receive 4rm FW after their (Fw) charges(>=1%) have been deducted. this is usually smaller than the expectedFee
             if ($resData->amount_settled > $expectedFee) {
                 ('send an email to myself to notify me that  flutterwave has overpayed me. this would naturally be a miracle or a product of some bug in flutterwave');
             }
 
             // verify status
-            if ($resData->status !== 'successful') return dd('status is false');
+            if ($resData->status !== 'successful') return dd('transaction status is FAILED');
 
             // verify currency //later we can integrate the currency into the db
-            if ($resData->currency !== 'NGN') return dd('currency is false');
+            if ($resData->currency !== 'NGN') return dd('currency is not in naira');
 
             // after passing all checks we can now add value to the user and update the db to show that this user has paid
             $auth_user = auth()->user();
             $auth_user->has_paid = true;
             $auth_user->save();
-            // dd(auth()->user()->has_paid);
         }
 
         return view('auth.thankyou');

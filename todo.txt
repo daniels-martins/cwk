@@ -35,3 +35,11 @@ ON SIGNUP EMAIL CONFIRMATION
  u can explore our services ---done('implemented with a bstrap alert')
 
 2. Once verified, it should automatically take the user to the dashboard for payment---done
+
+IMPORTANT
+3. All the dd() should actually redirect to a 404 page or resolve to a UI friendly message
+
+4. there is need for an application dashboard for admin cos, there is no phpmyadmin for heroku,
+so we technically have to build one ourselves for our remote or live webapp
+
+5. 
