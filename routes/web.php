@@ -1,8 +1,9 @@
 <?php
 
+use App\Models\Fee;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController as Dashboard;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +70,32 @@ Route::get('/free_trial', fn () => 'our free_trial route page')->name('free_tria
 Route::get('/coming_soon', fn () => 'our coming_soon route page')->name('coming_soon');
 Route::get('/todo', fn () => 'our todo route page')->name('todo');
 Route::get('/urgent_todo', fn () => 'our urgent_todo route page')->name('urgent_todo');
+
+
+
+Route::get('/tinker', function(){
+  $regFee = Fee::where([
+    ['title', 'registration fee'],
+    ['cost', '1050'],
+  ])->get();
+
+  if (count($regFee) > 0)
+  dd($regFee);
+    Fee::create([
+      'cost' => 1050,
+      'title' => 'registration fee',
+    ]);
+  // 
+
+  $regFee = Fee::first();
+  if (($regFee))
+  dd($regFee);
+  Fee::create([
+    'cost' => 1050,
+    'title' => 'registration fee',
+  ]);
+})
+  ->name('tinker');
 
 
 require __DIR__ . '/auth.php';
