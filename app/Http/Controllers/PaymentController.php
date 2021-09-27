@@ -42,14 +42,16 @@ class PaymentController extends Controller
              * @var $resData gets the data:property 4rm the json response & stores it in a variable
              */
             $resData = $responseObj->data;
-            dd($resData);
             /**
              * validate the amount that was processed by FWAVE: get the fee from the db and test against the one submitted or processed by FWAVE
              */
             /** 
              * @var $expectedFee refers to the registration fee from the db  
              * */
+            
             $expectedFee = DB::table('fees')->where('title', 'REGISTRATION FEE')->pluck('cost')->first();
+            dd($expectedFee, $resData);
+
             // {udo refactor this code to use exceptions instead of returning false on failure}
             // verify the fee paid by the user to us via flutterwave
             if ($resData->amount !== $expectedFee) return dd('amount is false');
