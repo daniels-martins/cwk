@@ -86,7 +86,8 @@
 
 		FlutterwaveCheckout({
 			// public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X",
-			public_key: "FLWPUBK_TEST-ac7fcc09d4b71a76233e596b138c5d00-X",
+			// public_key: "FLWPUBK_TEST-ac7fcc09d4b71a76233e596b138c5d00-X",
+			public_key: "{{ env('FLUTTER_PUBLIC_KEY') }}",
 			tx_ref: "RX001_" + uid,
 			amount: amount,
 			currency: 'NGN',

@@ -36,8 +36,6 @@ class PaymentController extends Controller
             curl_close($curl);
             // convert response to from json to php obj
             $responseObj = json_decode($response);
-            dd($responseObj);
-
             // validation of responseObj from flutterwave
 
             /**
