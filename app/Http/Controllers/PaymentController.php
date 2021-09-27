@@ -42,6 +42,7 @@ class PaymentController extends Controller
              * @var $resData gets the data:property 4rm the json response & stores it in a variable
              */
             $resData = $responseObj->data;
+            dd($resData);
             /**
              * validate the amount that was processed by FWAVE: get the fee from the db and test against the one submitted or processed by FWAVE
              */
