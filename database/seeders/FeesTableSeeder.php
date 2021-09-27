@@ -19,7 +19,7 @@ class FeesTableSeeder extends Seeder
 			['cost', '1050'],
 		])->get();
 
-		if (count($regFee) > 0)
+		if (count($regFee)<=0)
 		Fee::create([
 			'cost' => 1050,
 			'title' => 'registration fee',
