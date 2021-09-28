@@ -43,8 +43,9 @@ class WelcomeEmailNotfication extends Notification
     public function toMail(User $notifiable)
     {
         return (new MailMessage)
-            ->line('Hi ' . $notifiable->username . ',')
-            ->line('Welcome to CodeWithKayDee.')->greeting('Yello')
+            ->greeting('Hiya!')
+            ->line('Dear ' . $notifiable->username . ',')
+            ->line('Welcome to CodeWithKayDee.')
             ->line(new HtmlString('<p style="text-align:center">KaydeeTech.</p>'))
             ->action('Click here to visit your dashboard', url(route('dashboard')))
             ->line('Thank you for using our application!');

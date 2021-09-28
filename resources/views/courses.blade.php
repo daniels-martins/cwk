@@ -10,9 +10,9 @@
                     <div class="col-xl-12">
                         <div class="hero-cap hero-cap2 text-center">
                             <h2>All Courses</h2>
-                            @if($welcome_sms)
+                            @isset($welcome_sms)
                                 <p style="color:white"> {!! $welcome_sms !!}</p>
-                            @endif
+                            @endisset
                         </div>
                     </div>
                 </div>

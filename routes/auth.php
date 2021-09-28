@@ -1,15 +1,16 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController as Payment;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\FlutterwaveController as Flutterwave;
 use App\Http\Controllers\Auth\NewPasswordController as NewPassword;
 use App\Http\Controllers\Auth\VerifyEmailController as VerifyEmail;
 use App\Http\Controllers\Auth\RegisteredUserController as RegisteredUser;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\Auth\PasswordResetLinkController as PasswordResetLink;
 use App\Http\Controllers\Auth\ConfirmablePasswordController as ConfirmablePassword;
 use App\Http\Controllers\Auth\AuthenticatedSessionController as AuthenticatedSession;
-use App\Http\Controllers\FlutterwaveController as Flutterwave;
 use App\Http\Controllers\Auth\EmailVerificationPromptController as EmailVerificationPrompt;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController as EmailVerificationNotify;
 
@@ -52,19 +53,19 @@ Route::get('/email/verify', function () {
 // ------------------------------------------------------------------------------
 
 // ------------------------------------------------------------------------------------
-// Route::get('/verify-email/{id}/{hash}', [VerifyEmail::class, '__invoke'])
-//   ->middleware(['auth', 'signed', 'throttle:6,1'])
-//   ->name('verification.verify');
+Route::get('/verify-email/{id}/{hash}', [VerifyEmail::class, '__invoke'])
+  ->middleware(['auth', 'signed', 'throttle:6,1'])
+  ->name('verification.verify');
 
 // this route should flash a data to the session to congratulate the user for verifying 
 // their email with us
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-  $request->fulfill();
+// Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+//   $request->fulfill();
 
-  return redirect('dashboard')->with(
-    'email_verified_status',
-    'Congratulations, your email has been verified!');
-})->middleware(['auth', 'signed'])->name('verification.verify');
+//   return redirect('dashboard')->with(
+//     'email_verified_status',
+//     'Congratulations, your email has been verified!');
+// })->middleware(['auth', 'signed'])->name('verification.verify');
 // ------------------------------------------------------------------------------------
 
 

@@ -50,7 +50,9 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $user->notify(new WelcomeEmailNotfication());
+        // i've moved this logic to a listener for the Verified event
+        // note that this $user->notify() only works in controllers
+        // $user->notify(new WelcomeEmailNotfication());
 
         event(new Registered($user));
 
