@@ -16,7 +16,6 @@ class DashboardController extends Controller
 
         return view('courses', compact('welcome_sms'));
         }
-        else
         // i did this but it was unnecessary cos lara is bae
             // if (Session::has('restriction_sms')) {
             //     Session::flash('restriction_sms', "Sorry you need to pay to access our services");

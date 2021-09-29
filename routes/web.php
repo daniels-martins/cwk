@@ -18,22 +18,14 @@ use App\Http\Controllers\DashboardController as Dashboard;
 
 // Route::view('/', 'landing');
 Route::view('/', 'index')->name('landingPage');
-Route::view('/home', 'index');
-
-
-
-Route::get('tester', function () {
-});
+// Route::view('/home', 'index')->name('homePage');
 
 // Route::view('loader', 'partials/loader1');
 
 Route::view('/about', 'about')->name('about');
 
 Route::view('/contact', 'contact')->name('contact');
-
-
-
-// auth routes please use route group toclean up code
+/** auth routes please use route group toclean up code */
 
 
 // checkout routes
@@ -61,7 +53,7 @@ Route::view('/blog', 'blog')->middleware(['auth', 'verified', 'userpay'])->name(
 Route::view('/careers', 'careers')->middleware(['auth', 'verified', 'userpay'])->name('careers');
 
 // Route::view('/dashboard', 'auth.checkout1')->middleware(['auth', 'verified', 'userpay'])->name('dashboard');
-Route::get('/dashboard', [Dashboard::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [Dashboard::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 
 // secondary routes
@@ -73,29 +65,11 @@ Route::get('/urgent_todo', fn () => 'our urgent_todo route page')->name('urgent_
 
 
 
-Route::get('/tinker', function(){
-  $regFee = Fee::where([
-    ['title', 'registration fee'],
-    ['cost', '1050'],
-  ])->get();
+Route::get('tester', function () {
+});
 
-  if (count($regFee) > 0)
-  dd($regFee);
-    Fee::create([
-      'cost' => 1050,
-      'title' => 'registration fee',
-    ]);
-  // 
-
-  $regFee = Fee::first();
-  if (($regFee))
-  dd($regFee);
-  Fee::create([
-    'cost' => 1050,
-    'title' => 'registration fee',
-  ]);
-})
-  ->name('tinker');
+Route::get('/tinker', function () {
+})->name('tinker');
 
 
 require __DIR__ . '/auth.php';
