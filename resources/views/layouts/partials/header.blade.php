@@ -11,7 +11,7 @@
     @production
 
     @endproduction
-    <title> {{ strtoupper($currentPage) }} | Education </title>
+    <title> {{ strtoupper($currentPage) }} | KDCode </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
