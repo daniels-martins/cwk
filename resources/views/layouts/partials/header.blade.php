@@ -8,9 +8,6 @@
       $currentPage = Route::current()->uri;
      ($currentPage === '/') ? $currentPage = 'Code' : $currentPage;
     @endphp
-    @production
-
-    @endproduction
     <title> {{ strtoupper($currentPage) }} | KDCode </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -99,16 +96,19 @@
                     <!-- Logo -->
                     <div class="logo d-none d-lg-block" style="background-color: transparent;">
                       <a href="/">
-                        <img src= @env('local') {{ '/storage/logo/kaydeeLogo.jpg' }} @endenv
-                        @production{{ '/raw_assets/onlineedu/assets/img/logo/kaydeeLogo.jpg' }}@endproduction alt="site01logo" class="sitelogo_sm_header" ></a>
+                        <img alt="site01logo" class="sitelogo_sm_header"
+                        src=@env('local'){!! '"/storage/logo/kaydeeLogo.jpg"'!!} @endenv
+                        @production{!! '"/raw_assets/onlineedu/assets/img/logo/kaydeeLogo.jpg"' !!}@endproduction/>
+                      </a>
                     </div>
                     <div class="container">
                         <div class="menu-wrapper">
                             <!-- Logo -->
-                            <div class="logo logo2 d-block d-lg-none">
-                                <a href="/">
-                                <img src= @env('local') {{ '/storage/logo/kaydeeLogo.jpg' }} @endenv
-                        @production{{ '/raw_assets/onlineedu/assets/img/logo/kaydeeLogo.jpg' }}@endproduction alt="sitelogo" class="sitelogo_sm_header_v2" ></a>
+                            <div class="logo logo2 d-block d-lg-none"> 
+                              <a href="/">
+                              <img alt="sitelogo" class="sitelogo_sm_header_v2"
+                              src=@env('local'){!! '"/storage/logo/kaydeeLogo.jpg"'!!} @endenv
+                              @production{!! '"/raw_assets/onlineedu/assets/img/logo/kaydeeLogo.jpg"' !!}@endproduction /></a>
                             </div>
                             <!-- Main-menu -->
                             <div class="main-menu d-none d-lg-block">

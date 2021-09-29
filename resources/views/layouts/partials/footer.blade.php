@@ -125,11 +125,10 @@
                                     This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by 
 																		<a
 																			href="https://colorlib.com" target="_blank">
-																			<img src= @env('local') 
-																				{{ '/storage/logo/kaydeeLogo.jpg' }}
-																			@endenv
-																			@production
-																			{{ '/raw_assets/onlineedu/assets/img/logo/kaydeeLogo.jpg' }}@endproduction alt="site_logo" class="sitelogo_sm_footer"/>
+																			<img class="sitelogo_sm_footer" src=@env('local'){!! '"/storage/logo/kaydeeLogo.jpg"'!!} @endenv
+                                      @production
+                                      {!!'"/raw_assets/onlineedu/assets/img/logo/kaydeeLogo.jpg"'!!}
+                                      @endproduction />
 																		</a>
 																										<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 </p>

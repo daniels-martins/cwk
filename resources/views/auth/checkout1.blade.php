@@ -35,7 +35,9 @@
 @endsection
 @section('main')
 <main>
+{{-- {{ dd(Request::root()) }} --}}
 	<div class="row">
+	{{-- declare a variable to share data btwn lara and js  --}}
 		@php $user = json_encode(auth()->user()) @endphp
 
 		<!-- spacer -->
@@ -66,6 +68,12 @@
 		</div>
 	</div>
 </main>
+	
+{{-- lets do some cleaning up --}}
+@php
+$absolute_logo_url = (string) (Request::root() . '/storage/logo/kaydeeLogo.jpg');
+@endphp	
+
 <script src="https://checkout.flutterwave.com/v3.js"></script>
 <script>
 	function makePayment() {
@@ -75,7 +83,8 @@
 		let user = databox.getAttribute('user');
 		let amount = databox.getAttribute('amount');
 		let redirect_url = databox.getAttribute('redirect_url');
-
+		const absolute_logo_url= "{{ $absolute_logo_url }}";
+		alert(absolute_logo_url);
 		user = JSON.parse(user);
 		console.log(user.lname);
 		// console.log(date = new Date());
@@ -109,7 +118,8 @@
 			customizations: {
 				title: "Kaydee Tech",
 				description: "Payment for items in cart",
-				logo: "{{ 'http://127.0.0.1:8000/storage/logo/kaydeeLogo.jpg' }}",
+				logo: absolute_logo_url
+
 			},
 		});
 	}
