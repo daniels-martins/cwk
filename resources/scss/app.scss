@@ -1,94 +1,156 @@
-@use 'base/base';
+@use "base/base";
 
 // utilities {tag}
-.spacious-1{
-  letter-spacing: .1rem;
+.spacious-1 {
+    letter-spacing: 0.1rem;
 }
-.mt-2{
-  margin-top: 20rem;
+.mt-2 {
+    margin-top: 20rem;
 }
-.height-full{
-  height: 100vh;
+.height-full {
+    height: 100vh;
+}
+
+
+.p-1 {
+    padding: 1rem;
+}
+.p-2 {
+    padding: 2rem;
+}
+.p-3 {
+    padding: 3rem;
+}
+.p-4 {
+    padding: 4rem;
+}
+
+.p-5 {
+    padding: 5rem;
+}
+
+// .px-3{
+// padding-left: 3rem;
+// padding-right: 3rem;
+// }
+
+// .px-4{
+// padding-left: 4rem;
+// padding-right: 4rem;
+// }
+// .px-5{
+// padding-left: 5rem;
+// padding-right: 5rem;
+// }
+
+.px-6{
+padding-left: 6rem;
+padding-right: 6rem;
+}
+
+.px-7{
+padding-left: 7rem;
+padding-right: 7rem;
+}
+
+.px-8{
+padding-left: 8rem;
+padding-right: 8rem;
+}
+
+.px-9{
+padding-left: 9rem;
+padding-right: 9rem;
+}
+.px-10{
+padding-left: 10rem;
+padding-right: 10rem;
+}
+
+.c-white{
+  color: white !important;
 }
 
 // money {tag}
-.naira{
-  text-decoration: line-through;
-  text-decoration-style: double;
+.naira {
+    text-decoration: line-through;
+    text-decoration-style: double;
 }
 
-.nairablock_sm{
-  // padding: 0 1.5rem;
-  width: 50%;
-
+.nairablock_sm {
+    // padding: 0 1.5rem;
+    width: 50%;
 }
 // .amount_with_pay_btn{
 //   disp
 // }
 
-
-
 // typography {tag}
-.txt-lg{
-  font-size: larger;
+.txt-lg {
+    font-size: larger;
 }
 
-.laksaman{
-font-family: 'laksaman';
+.laksaman {
+    font-family: "laksaman";
 }
 
-// ======= pages 
+.click2disable:active{
+  cursor: not-allowed;
+}
 
+#ulogout{
+
+    &:focus, &:active{
+        cursor:not-allowed;
+    }
+}
+// ======= pages
 
 // 1. checkout1
-.btn-lg{
-  padding: 10px 30px;
+.btn-lg {
+    padding: 10px 30px;
 }
-.btn-sm{
-  padding: 1.5rem 2rem;
-  border-radius: 0.5rem;
-  box-shadow: 0rem .3rem .2rem #2F4193;
-}
-
-.sitelogo{
-  width: 100px;
+.btn-sm {
+    padding: 1.5rem 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0rem 0.3rem 0.2rem #2f4193;
 }
 
-.sitelogo_sm_header{
-  margin: -2.5rem 3rem;
-  width: 100px;
-}
-
-
-
-.sitelogo_sm_header_v2{
-  margin: -1.5rem 1rem;
-  width: 90px;
-  height: 70px;
-}
-
-.sitelogo_sm{
+.sitelogo {
     width: 100px;
-  height: 60px;
 }
 
-.sitelogo_sm_footer{
-  height: 40px;
-  border-radius: 100%;
+.sitelogo_sm_header {
+    margin: -2.5rem 3rem;
+    width: 100px;
 }
 
-.block{
-  display: inline-block;
+.sitelogo_sm_header_v2 {
+    margin: -1.5rem 1rem;
+    width: 90px;
+    height: 70px;
 }
 
-.btn_custom{
-  padding: 1.5rem 5rem;
-  background-color: #2F4193;
-  color: white;
-  border-radius: .2rem;
-}
-.btn_custom:hover{
-  color: white;
-
+.sitelogo_sm {
+    width: 100px;
+    height: 60px;
 }
 
+.sitelogo_sm_footer {
+    height: 40px;
+    border-radius: 100%;
+}
+
+.block {
+    display: inline-block;
+}
+
+.btn_custom {
+    padding: 1.5rem 5rem;
+    background-color: #2f4193;
+    color: white;
+    border-radius: 0.2rem;
+}
+.btn_custom:hover {
+    color: white;
+}

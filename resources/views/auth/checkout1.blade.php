@@ -21,10 +21,19 @@
 		margin-left: 0px;
 	}
 
-	.message .sub {
-		letter-spacing: .1rem;
-		font-size: 1.1rem;
+	.sub {
+		letter-spacing: .2rem;
+		font-size: 1.4rem;
 		text-transform: capitalize;
+		display: block;
+		/* margin: .5rem; */
+		margin-left: 0px;
+	}
+
+
+		.sub1 {
+		letter-spacing: .1rem;
+		font-size: 1.2rem;
 		display: block;
 		/* margin: .5rem; */
 		margin-left: 0px;
@@ -56,14 +65,14 @@
 						<b>{{ strtoupper(auth()->user()->fname) }}</b>,
 					</span>
 				</strong> <br>
-				<br><strong class="sub">Almost there</strong> All that's left is a token of N1,050 and you're well on your journey to being a world class web developer
+				<br><strong class="sub">Almost there</strong> <span class="sub1">	All that's left is a token of <b> N1,050</b> and you're well on your journey to being a world class web developer</span>
 			</p>
 
 			<form class="m-2 text-center">
 				<script src="https://checkout.flutterwave.com/v3.js"></script>
 				<input type="hidden" user="{{ $user }}" name='data' redirect_url={{ route('thankyou') }}
 				amount="1050"  />
-				<button type="button" class="btn_custom btn ml-3" onClick="makePayment()">Pay Now</button>
+				<button type="button" class="btn_custom btn ml-3" onClick="makePayment()">Pay Now <b class="c-white">( <b class="naira c-white"> N</b> 1,050 )</b></button>
 			</form>
 		</div>
 	</div>
@@ -84,18 +93,14 @@ $absolute_logo_url = (string) (Request::root() . '/storage/logo/kaydeeLogo.jpg')
 		let amount = databox.getAttribute('amount');
 		let redirect_url = databox.getAttribute('redirect_url');
 		const absolute_logo_url= "{{ $absolute_logo_url }}";
-		alert(absolute_logo_url);
 		user = JSON.parse(user);
 		console.log(user.lname);
-		// console.log(date = new Date());
 		let date = new Date();
 		const uid = date.getTime();
 		console.log(date.getTime());
 		const trx_ref = "RX001_" + uid;
 
 		FlutterwaveCheckout({
-			// public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X",
-			// public_key: "FLWPUBK_TEST-ac7fcc09d4b71a76233e596b138c5d00-X",
 			public_key: "{{ env('FLUTTER_PUBLIC_KEY') }}",
 			tx_ref: "RX001_" + uid,
 			amount: amount,
@@ -119,7 +124,6 @@ $absolute_logo_url = (string) (Request::root() . '/storage/logo/kaydeeLogo.jpg')
 				title: "Kaydee Tech",
 				description: "Payment for items in cart",
 				logo: absolute_logo_url
-
 			},
 		});
 	}

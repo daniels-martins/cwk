@@ -10,6 +10,55 @@
   height: 100vh;
 }
 
+.p-1 {
+  padding: 1rem;
+}
+
+.p-2 {
+  padding: 2rem;
+}
+
+.p-3 {
+  padding: 3rem;
+}
+
+.p-4 {
+  padding: 4rem;
+}
+
+.p-5 {
+  padding: 5rem;
+}
+
+.px-6 {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+.px-7 {
+  padding-left: 7rem;
+  padding-right: 7rem;
+}
+
+.px-8 {
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+
+.px-9 {
+  padding-left: 9rem;
+  padding-right: 9rem;
+}
+
+.px-10 {
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
+.c-white {
+  color: white !important;
+}
+
 .naira {
   text-decoration: line-through;
   -webkit-text-decoration-style: double;
@@ -28,6 +77,14 @@
   font-family: "laksaman";
 }
 
+.click2disable:active {
+  cursor: not-allowed;
+}
+
+#ulogout:focus, #ulogout:active {
+  cursor: not-allowed;
+}
+
 .btn-lg {
   padding: 10px 30px;
 }
@@ -35,7 +92,7 @@
 .btn-sm {
   padding: 1.5rem 2rem;
   border-radius: 0.5rem;
-  box-shadow: 0rem 0.3rem 0.2rem #2F4193;
+  box-shadow: 0rem 0.3rem 0.2rem #2f4193;
 }
 
 .sitelogo {
@@ -69,7 +126,7 @@
 
 .btn_custom {
   padding: 1.5rem 5rem;
-  background-color: #2F4193;
+  background-color: #2f4193;
   color: white;
   border-radius: 0.2rem;
 }

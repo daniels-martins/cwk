@@ -148,6 +148,11 @@
 											</ul>
 										</li>
 										<li><a href="{{ route('contact') }}">Contact</a></li>
+
+										<li><a href="{{ route('admin.student.dashboard') }}">student</a></li>
+										
+										<li><a href="{{ route('admin.instructor.dashboard') }}">instructor</a></li>
+										
 										<li class="text-center d-lg-none">@auth
 											<div class="d-flex justify-content-center">
 												<form method="POST" id="form1" action="{{ route('logout') }}" name='logout_form' onsubmit="__submit('logout_btn_sm')">

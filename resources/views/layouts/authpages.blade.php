@@ -60,5 +60,16 @@ Author URL: http://w3layouts.com
   </section>
   <!-- //form section start -->
 </body>
-
+<script>
+// solution 2 using onsubmit="__submit(name_of_form_SubmitBtn)" on the form itself
+// ---------------------------
+function __submit(nameofSubmitBtn) {
+	event.preventDefault();
+	const submitBtn = document.querySelector(`[name=${nameofSubmitBtn}]`)
+	if (submitBtn.getAttribute('type') == 'submit') {
+		event.target.submit();	submitBtn.setAttribute('type', 'button');
+		submitBtn.disabled=true; submitBtn.style.cursor='not-allowed';//4web
+	}
+}
+</script>
 </html>

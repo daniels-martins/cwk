@@ -11,85 +11,93 @@ use Illuminate\Validation\ValidationException;
 
 class LoginRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return true;
-    }
+	/**
+	 * Determine if the user is authorized to make this request.
+	 *
+	 * @return bool
+	 */
+	public function authorize()
+	{
+		return true;
+	}
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
-    {
-        return [
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-        ];
-    }
+	/**
+	 * Get the validation rules that apply to the request.
+	 *
+	 * @return array
+	 */
+	public function rules()
+	{
+		return [
+			'email' => 'required|string',
+			'password' => 'required|string',
+		];
+	}
 
-    /**
-     * Attempt to authenticate the request's credentials.
-     *
-     * @return void
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    public function authenticate()
-    {
-        $this->ensureIsNotRateLimited();
-        // if (!Auth::attempt($this->only(['email', /*or*/ 'username'], 'password'), $this->boolean('remember')))
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
-            RateLimiter::hit($this->throttleKey());
+	/**
+	 * Attempt to authenticate the request's credentials.
+	 *
+	 * @return void
+	 *
+	 * @throws \Illuminate\Validation\ValidationException
+	 */
+	public function authenticate()
+	{
+		$this->ensureIsNotRateLimited();
+		$username_credentials = [
+			'username' => $this->email,
+			'password' => $this->password,
+		];
+		$email_credentials= $this->only('email', 'password');
 
-            throw ValidationException::withMessages([
-                'email' => __('auth.failed'),
-                // added
-                // 'username' => __('auth.failed'),
-            ]);
-        }
+		// to use multiple fields to login we have to code it manually...
+		// we define the credentials above, & then we add the check to the if(){block} using && operator
+		if (! Auth::attempt($username_credentials, $this->boolean('remember'))
+			&& (! Auth::attempt($email_credentials, $this->boolean('remember')))) 
+			{
+			RateLimiter::hit($this->throttleKey());
 
-        RateLimiter::clear($this->throttleKey());
-    }
+			throw ValidationException::withMessages([
+				'email' => __('auth.failed'),
+				// NB| added : the email and username use the same form field
+			]);
+		}
 
-    /**
-     * Ensure the login request is not rate limited.
-     *
-     * @return void
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    public function ensureIsNotRateLimited()
-    {
-        if (! RateLimiter::tooManyAttempts($this->throttleKey(), 6)) {
-            return;
-        }
+		RateLimiter::clear($this->throttleKey());
+	}
 
-        event(new Lockout($this));
+	/**
+	 * Ensure the login request is not rate limited.
+	 *
+	 * @return void
+	 *
+	 * @throws \Illuminate\Validation\ValidationException
+	 */
+	public function ensureIsNotRateLimited()
+	{
+		if (!RateLimiter::tooManyAttempts($this->throttleKey(), 6)) {
+			return;
+		}
 
-        $seconds = RateLimiter::availableIn($this->throttleKey());
+		event(new Lockout($this));
 
-        throw ValidationException::withMessages([
-            'email' => trans('auth.throttle', [
-                'seconds' => $seconds,
-                'minutes' => ceil($seconds / 60),
-            ]),
-        ]);
-    }
+		$seconds = RateLimiter::availableIn($this->throttleKey());
 
-    /**
-     * Get the rate limiting throttle key for the request.
-     *
-     * @return string
-     */
-    public function throttleKey()
-    {
-        return Str::lower($this->input('email')).'|'.$this->ip();
-    }
+		throw ValidationException::withMessages([
+			'email' => trans('auth.throttle', [
+				'seconds' => $seconds,
+				'minutes' => ceil($seconds / 60),
+			]),
+		]);
+	}
+
+	/**
+	 * Get the rate limiting throttle key for the request.
+	 *
+	 * @return string
+	 */
+	public function throttleKey()
+	{
+		return Str::lower($this->input('email')) . '|' . $this->ip();
+	}
 }

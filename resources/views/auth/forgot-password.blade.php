@@ -34,7 +34,7 @@
 @section('main')
 <main>
     <div class="row">
-        <div class="col-md-3 ">
+        <div class="col-sm-12 col-md-3 ">
             <!-- spacer -->
             @if(Session::has('status'))
             {{-- {{ 'what do u mean? Good!' }} --}}
@@ -44,7 +44,7 @@
             @endif
         </div>
 
-        <div class="col-md-4 message">
+        <div class="col-sm-12  col-md-4 message px-5">
             <div class="my-5">
                 <p class="message my-2">
                     <strong class="top">Dear Valued Customer! </strong> <br> <br>

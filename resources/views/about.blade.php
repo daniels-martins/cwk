@@ -47,7 +47,7 @@
     </div>
     <!-- About Details End -->
     <!--? Count Down Start -->
-    <div class="count-down-area pt-90 pb-60 section-bg" data-background="assets/img/gallery/section_bg01.png">
+    <div class="count-down-area pt-90 pb-60 section-bg" data-background="raw_assets/onlineedu/assets/img/gallery/section_bg01.png">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12 col-md-12">
@@ -109,7 +109,7 @@
     </div>
     <!-- Count Down End -->
     <!--? Testimonial Start -->
-    <div class="testimonial-area fix pt-180 pb-180 section-bg" data-background="assets/img/gallery/section_bg03.png">
+    <div class="testimonial-area fix pt-180 pb-180 section-bg" data-background="raw_assets/onlineedu/assets/img/gallery/section_bg03.png">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-8 col-lg-9 col-md-9">
@@ -118,7 +118,7 @@
                         <div class="single-testimonial pt-65">
                             <!-- Testimonial tittle -->
                             <div class="testimonial-icon mb-45">
-                                <img src="assets/img/gallery/testimonial.png" class="ani-btn " alt="">
+                                <img src="raw_assets/onlineedu/assets/img/gallery/testimonial.png" class="ani-btn " alt="">
                             </div>
                             <!-- Testimonial Content -->
                             <div class="testimonial-caption text-center">
@@ -142,7 +142,7 @@
                         <div class="single-testimonial pt-65">
                             <!-- Testimonial tittle -->
                             <div class="testimonial-icon mb-45">
-                                <img src="assets/img/gallery/testimonial.png" class="ani-btn " alt="">
+                                <img src="raw_assets/onlineedu/assets/img/gallery/testimonial.png" class="ani-btn " alt="">
                             </div>
                             <!-- Testimonial Content -->
                             <div class="testimonial-caption text-center">
@@ -194,10 +194,10 @@
                     <!-- about-img -->
                     <div class="about-img ">
                         <div class="about-font-img d-none d-lg-block">
-                            <img src="assets/img/gallery/about2.png" alt="">
+                            <img src="raw_assets/onlineedu/assets/img/gallery/about2.png" alt="">
                         </div>
                         <div class="about-back-img ">
-                            <img src="assets/img/gallery/about1.png" alt="">
+                            <img src="raw_assets/onlineedu/assets/img/gallery/about1.png" alt="">
                         </div>
                     </div>
                 </div>

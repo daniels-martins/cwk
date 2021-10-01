@@ -45,7 +45,7 @@
             @If (session('status')){{ session('status') }} @endif </p>
         </div>
 
-        <form method="POST" action="{{ route('password.update') }}" class="my-3">
+        <form method="POST" action="{{ route('password.update') }}" class="m-3" onsubmit="__submit('password_reset_btn')">
           <legend class="text-center">
             <label for="registered_email">Reset Password</label>
           </legend>
@@ -78,7 +78,7 @@
 
 
           <div class="form-group my-1">
-            <input type="submit" class="genric-btn radius primary form-control" value=" Reset Password" />
+            <input type="submit" class="genric-btn radius primary form-control" value=" Reset Password" name="password_reset_btn"/>
           </div>
 
         </form>

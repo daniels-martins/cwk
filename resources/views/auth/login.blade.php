@@ -23,10 +23,11 @@ window.onload = ()=>{
     @error('email')
     <strong class="text-center error mt--1">Oops!{{ $errors->first('email') }}</strong>
     @enderror
-    <form action="{{ route('login') }}" class="signin-form" method="POST">
+    <form action="{{ route('login') }}" class="signin-form" method="POST" 
+    onsubmit="__submit('login_btn')">
         @csrf
         <div class="one-frm">
-            <input class="@error('email')invalid-block @enderror" type="email" name="email" placeholder="Email" required="" value="{{ old('email') }}" autofocus>
+            <input class="@error('email')invalid-block @enderror" type="text" name="email" placeholder="Email" required="" value="{{ old('email') }}" autofocus>
 
         </div>
         <div class="one-frm">
@@ -42,7 +43,7 @@ window.onload = ()=>{
             <p class="remember">Remember Me</p>
 
         </label>
-        <button class="btn btn-style" type="submit">Login </button>
+        <button class="btn btn-style" type="submit" name="login_btn">Login </button>
         <div class="text-center mt-1">
             @if(Route::has('password.request'))
             <a class="link" href="{{ route('password.request') }}">

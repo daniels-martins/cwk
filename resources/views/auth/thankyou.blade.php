@@ -34,17 +34,16 @@
 @section('main')
 <main>
 	<div class="row">
-		<div class="col-md-3 ">
+		<div class="col-md-1 ">
 			<!-- spacer -->
 			@if(Session::has('status'))
 			{{-- {{ 'what do u mean? Good!' }} --}}
 			@else
 			{{-- {{ 'Bad one? bad!' }} --}}
-
 			@endif
 		</div>
 
-		<div class="col-sm-12  col-md-4  message height-full">
+		<div class="col-sm-12  col-md-9  message height-full">
 			<div class="px-5">
 				<p class="message">
 					<strong class="top">Payment  success</strong> <br> <br>
@@ -57,7 +56,7 @@
 			</div>
 
 			<div class='text-center'> <br>
-				<a href="/" class="block btn btn-sm ">Go home</a>
+				<a href="{{ route('dashboard') }}" class="block btn btn-sm ">Go home</a>
 			</div>
 
 		</div>

@@ -38,8 +38,49 @@ ON SIGNUP EMAIL CONFIRMATION
 
 IMPORTANT
 3. All the dd() should actually redirect to a 404 page or resolve to a UI friendly message
+=>learn how to handle exceptions in lara!
 
 4. there is need for an application dashboard for admin cos, there is no phpmyadmin for heroku,
 so we technically have to build one ourselves for our remote or live webapp
 
 5. 
+
+
+right now
+1. database of courses that we offer 
+Db::shema 
+columns:{
+  course_title,
+  course_slug('just like course_code in sch),
+  course_details('brief description about course ),
+  course_description('detailed info about course').
+  course_img('don't worry, we will store them locally'),
+  course_group(this->belongsTo(thiscoursegroup::class))
+
+}
+
+
+course groups: Graphic design{
+  photoshop, adobe illustrator, CorelDraw
+}, 
+languages{
+    html,
+    css,
+    javascript,
+    php,
+  
+},
+web development{
+  #fullstack webdev with html, css, js, & php, (nodeJs)
+   #frontend webdev, html, css, js bonus(vue)
+   #backend webdev, php, OOP-PHP, laravel, nodeJs
+}, android development{
+  dart course, flutter course
+},
+frameworks{
+  laravel,
+  bootstrap,
+  vuejs,
+  jquery,
+  nodeJs
+}
