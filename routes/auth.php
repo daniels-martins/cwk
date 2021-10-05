@@ -44,12 +44,12 @@ Route::post('/reset-password', [NewPassword::class, 'store'])
   ->middleware('guest')
   ->name('password.update');
 // ---------------------------------------------------------------------------------------
-// Route::get('/verify-email', [EmailVerificationPrompt::class, '__invoke'])
-//   ->middleware('auth')
-//   ->name('verification.notice');
-Route::get('/email/verify', function () {
-  return view('auth.verify-email');
-})->middleware('auth')->name('verification.notice');
+Route::get('/verify-email', [EmailVerificationPrompt::class, '__invoke'])
+  ->middleware('auth')
+  ->name('verification.notice');
+// Route::get('/email/verify', function () {
+//   return view('auth.verify-email');
+// })->middleware('auth')->name('verification.notice');
 // ------------------------------------------------------------------------------
 
 // ------------------------------------------------------------------------------------

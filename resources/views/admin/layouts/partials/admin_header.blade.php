@@ -83,12 +83,12 @@
 										<li><a href="{{ route('register') }}"><i class="ti-lock"></i>Register</a></li>
 										@else
 										<li>
-											<form method="POST" action="{{ route('logout') }}" name='logout_form_pc' 
-											onsubmit="__submit('logout_btn_pc')">
+											<form method="POST" action="{{ route('logout') }}" name='logout_form_pc'
+												onsubmit="__submit('logout_btn_pc')">
 												@csrf
 												<i class="ti-user"></i>
-												<button type="submit" class='generic-btn' name='logout_btn_pc' >
-														Logout
+												<button type="submit" class='generic-btn' name='logout_btn_pc'>
+													Logout
 												</button>
 											</form>
 										</li>
@@ -150,15 +150,16 @@
 										<li><a href="{{ route('contact') }}">Contact</a></li>
 
 										<li><a href="{{ route('admin.student.dashboard') }}">student</a></li>
-										
+
 										<li><a href="{{ route('admin.instructor.dashboard') }}">instructor</a></li>
-										
+
 										<li class="text-center d-lg-none">@auth
 											<div class="d-flex justify-content-center">
-												<form method="POST" id="form1" action="{{ route('logout') }}" name='logout_form' onsubmit="__submit('logout_btn_sm')">
+												<form method="POST" id="form1" action="{{ route('logout') }}" name='logout_form'
+													onsubmit="__submit('logout_btn_sm')">
 													@csrf
-													<button type="submit" class='px-5 genric-btn btn-danger' 
-													id="logout_btn_sm" name="logout_btn_sm"> Logout </button>
+													<button type="submit" class='px-5 genric-btn btn-danger' id="logout_btn_sm"
+														name="logout_btn_sm"> Logout </button>
 												</form>
 
 											</div>

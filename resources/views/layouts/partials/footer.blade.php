@@ -144,27 +144,54 @@
 
 
 <!-- cusotm js -->
-<script>
-//solution 2 using onsubmit="__submit()" on the form itself
-// ----------------THIS IS A HYBRID SOLUTION SINCE ITS HOOKED TO THE FORM'S SUBMIT EVENT-------
-function __submit(nameofSubmitBtn) {
-	event.preventDefault();
-	const submitBtn = document.querySelector(`[name=${nameofSubmitBtn}]`)
-	if (submitBtn.getAttribute('type') == 'submit') {
-		event.target.submit();	submitBtn.setAttribute('type', 'button');
-		submitBtn.disabled=true; submitBtn.style.cursor='not-allowed';//4web
+<script type="text/javascript" defer>
+	//solution 2 using onsubmit="__submit()" on the form itself
+	// ----------------THIS IS A HYBRID SOLUTION SINCE ITS HOOKED TO THE FORM'S SUBMIT EVENT-------
+	function __submit(nameofSubmitBtn) {
+		event.preventDefault();
+		const submitBtn = document.querySelector(`[name=${nameofSubmitBtn}]`)
+		if (submitBtn.getAttribute('type') == 'submit') {
+			event.target.submit(); submitBtn.setAttribute('type', 'button');
+			submitBtn.disabled = true; submitBtn.style.cursor = 'not-allowed';//4web
+		}
 	}
-}
+
+	document.addEventListener('DOMContentLoaded', function greeting() {
+		// alert('hello mr. maraji');
+		console.log('the same thing',new Date().toTimeString().split(" ")[0]);
+	});
+
+	if (document.readyState === 'loading') {
+		// console.log('document is already ready, just execute code here');
+		console.log('document is stil loading ready, just execute code here', new Date().toTimeString().split(" ")[0]);
+
+
+		// myInitCode();
+	}
+	// else {
+	// 		document.addEventListener('DOMContentLoaded', function () {
+	// 		console.log('document was not ready, place code here');
+	// 		// myInitCode();
+	// 	});
+	// }
 </script>
+
 
 
 <!-- JS here -->
 
 <script src="/raw_assets/onlineedu/assets/js/vendor/modernizr-3.5.0.min.js"></script>
 <!-- Jquery, Popper, Bootstrap -->
+<script src="/raw_assets/onlineedu/assets/js/vendor/jquery-3.6.min.js"></script>
 <script src="/raw_assets/onlineedu/assets/js/vendor/jquery-1.12.4.min.js"></script>
+
 <script src="/raw_assets/onlineedu/assets/js/popper.min.js"></script>
+
 <script src="/raw_assets/onlineedu/assets/js/bootstrap.min.js"></script>
+
+<!-- import the bootstrap animate css... plugin -->
+<script src="/raw_assets/onlineedu/assets/js/vendor/bootstrap-animate-css.js"></script>
+
 <!-- Jquery Mobile Menu -->
 <script src="/raw_assets/onlineedu/assets/js/jquery.slicknav.min.js"></script>
 
@@ -197,11 +224,14 @@ function __submit(nameofSubmitBtn) {
 <script src="/raw_assets/onlineedu/assets/js/plugins.js"></script>
 <script src="/raw_assets/onlineedu/assets/js/main.js"></script>
 
+
+<!-- laravel Js here -->
+<script defer src="{{ mix('js/app.js') }}"></script>
 </body>
 
 </html>
 
-
+<!-- NB: this is outside the dom -->
 <script>
 //solution 1 using onclick on the submit button
 // use an onclick='_submit()' in html and use fn below
