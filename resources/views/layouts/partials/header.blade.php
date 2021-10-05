@@ -22,7 +22,8 @@
 	<style>
 	</style>
 
-	{{-- <!-- Js here -->
+	{{--
+	<!-- Js here -->
 	<script defer src="{{ mix('js/app.js') }}"></script> --}}
 	@yield('custom_styles')
 	@yield('header_scripts')
@@ -41,10 +42,41 @@
 		</div>
 	</div>
 	<!-- Preloader Start -->
+
 	<header>
 		<!-- Header Start -->
 		<div class="header-area">
+			<!-- All popup modals for the header goes here -->
+			<!-- Modal 1: LogoutButton mOdal -->
+			<div class="logout_modal">
+				{{-- here goes the logout modal --}}
+				<div class="modal" class="z-10" data-animate-in='animate__zoomInUp' tabindex="-1" role="dialog" id='bigModal'>
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title text-white font-bold">Are you sure you want to logout?</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true" class="text-red-300 font-light text-xxl">&CircleTimes;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p class="text-white text-sm word-sp-">If you logout bad things might happen.  Just kidding :) </p>
+							</div>
+							<div class="modal-footer">
+								
+								<button type="submit" name="logout_btn_pc" form="logout_form_pc" class="px-3 py-2 bg-gray-700 text-gray-50 rounded-md hover:text-red-600">Logout Now</button> &nbsp;&nbsp;&nbsp;
+								<button type="button" class="px-2 py-1 text-gray-100 rounded-md hover:text-purple-300" data-dismiss="modal">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- @end/All popup modals for the header goes here -->
+
 			<div class="main-header ">
+
 				<div class="header-top d-none d-lg-block">
 					<!-- Left Social -->
 					<div class="header-left-social">
@@ -82,12 +114,21 @@
 										@else
 										<li>
 											<form method="POST" action="{{ route('logout') }}" name='logout_form_pc'
-												onsubmit="__submit('logout_btn_pc')">
+												onsubmit="__submit('logout_btn_pc')" id="logout_form_pc">
 												@csrf
+												{{-- new logout button using animation with a modal --}}
 												<i class="ti-user"></i>
-												<button type="submit" class='generic-btn' name='logout_btn_pc'>
-													Logout
+												<button type="button" class="generic-btn" data-toggle="modal" 
+												name='logout_btn_pc__modal'
+													data-target="#bigModal">Logout</button> |
+												{{-- here goes the modal --}}
+												<!-- modal is supposed to be here but it does not overlay when placed inside the header's (.main-header). Consequently, it is placed before the header's (.main-header) in the (.header-area). check the 'data-target' attribute for more details --> 
+												&nbsp;&nbsp;&nbsp;
+												<button type="submit" class='d-inline-block' name='logout_btn_pc' title="quick logout">
+													<i class="ti-power-off text-lg font-bold antialiased text-red-500"></i>
 												</button>
+
+
 											</form>
 										</li>
 										@endguest

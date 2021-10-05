@@ -62,7 +62,7 @@
 			<p class="message m-5">
 				<strong class="top">Hola! 
 					<span class="laksaman">
-						<b>{{ strtoupper(auth()->user()->fname) }}</b>,
+						<b>{{ strtoupper(auth()->user()->fname)}}</b>,
 					</span>
 				</strong> <br>
 				<br><strong class="sub">Almost there</strong> <span class="sub1">	All that's left is a token of <b> N1,050</b> and you're well on your journey to being a world class web developer</span>
@@ -77,12 +77,11 @@
 		</div>
 	</div>
 </main>
-	
 {{-- lets do some cleaning up --}}
-@php
-$absolute_logo_url = (string) (Request::root() . '/storage/logo/kaydeeLogo.jpg');
-@endphp	
-
+	<?php $absolute_logo_url = (Request::root() . '/storage/logo/kaydeeLogo.jpg');
+ //remove the '//' injected by BrowserSync in dev mode
+ 	if ( preg_match('//', $absolute_logo_url) )
+ 		$absolute_logo_url = str_replace('//', '', $absolute_logo_url);?>
 <script src="https://checkout.flutterwave.com/v3.js"></script>
 <script>
 	function makePayment() {

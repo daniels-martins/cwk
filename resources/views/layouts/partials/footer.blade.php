@@ -159,7 +159,7 @@
 	document.addEventListener('DOMContentLoaded', function greeting() {
 		// alert('hello mr. maraji');
 		console.log('the same thing',new Date().toTimeString().split(" ")[0]);
-	});
+	}); 
 
 	if (document.readyState === 'loading') {
 		// console.log('document is already ready, just execute code here');

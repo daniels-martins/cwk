@@ -24,3 +24,7 @@ to
 
 NB:
 1. the following files are redundant
+
+
+the template for the dashboard is STUD
+LOCATION; /home/bolt/websites/wgetUrls/laradocs/stud

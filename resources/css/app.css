@@ -1,6 +1,6 @@
 /* @import 'tailwindcss/base'; */
-/* @import 'tailwindcss/components'; */
-/* @import 'tailwindcss/utilities'; */
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 /* @import "animate.css"; */
 
@@ -19,5 +19,32 @@ button {
   cursor: pointer;
 }
 button:hover{
-  color: rgba(108, 108, 236, 0.809);
+  /* color: rgba(108, 108, 236, 0.809); */
+  color: inherit;
+}
+
+
+.modal, .modal-dialog{
+  background: transparent;
+  font-family: monospace;
+}
+.modal-content{
+  background-color: black;
+  background: #464d6ec9;
+  border: 3px solid #464d6e7c;
+  border-radius: none;
+  box-shadow: 0 1rem 3rem rgb(5, 17, 32);
+
+  
+  /* color: white; */
+}
+.modal-header,
+.modal-body, .modal-footer{
+  background-color: inherit;
+  border: none;
+  /* color: white; */
+}
+.modal-body{
+    letter-spacing: .25rem;
+  word-spacing: .25rem;
 }
