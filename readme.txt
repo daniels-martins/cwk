@@ -25,6 +25,11 @@ to
 NB:
 1. the following files are redundant
 
-
-the template for the dashboard is STUD
+Notice: the template for the dashboard is STUD
 LOCATION; /home/bolt/websites/wgetUrls/laradocs/stud
+
+
+components
+create the following components
+1. logout button component with two versions (for both web and mobile)
+

@@ -4469,9 +4469,24 @@
   height: 60px;
 }
 
-.sitelogo_sm_footer {
+.sitelogo_sm_footer, .sitelogo_sm_header__admin {
   height: 40px;
   border-radius: 100%;
+}
+
+.sitelogo_sm_header__admin {
+  position: absolute;
+  top: 0;
+}
+
+.header-search_sm {
+  height: 40px;
+  padding: -210px;
+}
+
+.slider-area_no_padding {
+  margin: none;
+  padding: none;
 }
 
 .block {

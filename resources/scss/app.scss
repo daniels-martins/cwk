@@ -127,7 +127,7 @@ padding-right: 10rem;
     margin: -2.5rem 3rem;
     width: 100px;
 }
-
+// for mobile
 .sitelogo_sm_header_v2 {
     margin: -1.5rem 1rem;
     width: 90px;
@@ -139,11 +139,29 @@ padding-right: 10rem;
     height: 60px;
 }
 
-.sitelogo_sm_footer {
+.sitelogo_sm_footer, .sitelogo_sm_header__admin {
     height: 40px;
     border-radius: 100%;
 }
+// ========admin stylings===================
+.sitelogo_sm_header__admin {
+    // margin: -5.5rem .2rem;
+    position: absolute;
+    top: 0;
+    // width: 45px;
+    // height: 35px;   
+}
+.header-search_sm{
+    height: 40px;
+    padding: -210px;
+}
 
+.slider-area_no_padding{
+    margin: none;
+    padding: none;
+}
+
+// ==============================================
 .block {
     display: inline-block;
 }

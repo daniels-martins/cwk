@@ -23,3 +23,12 @@
     </div>
   </div>
 </div>
+
+<!-- component 2.  : logout button-->
+<form method="POST" action="{{ route('logout') }}" name='logout_form_pc' onsubmit="__submit('logout_btn_pc')">
+  @csrf
+  <i class="ti-user"></i>
+  <button type="submit" class='generic-btn' name='logout_btn_pc'>
+    Logout
+  </button>
+</form>

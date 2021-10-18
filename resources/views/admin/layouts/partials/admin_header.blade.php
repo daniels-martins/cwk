@@ -8,7 +8,7 @@
 	$currentPage = Route::current()->uri;
 	($currentPage === '/') ? $currentPage = 'Code' : $currentPage;
 	@endphp
-	<title> {{ strtoupper($currentPage) }} | KDCode </title>
+	<title> Admin | {{ strtoupper($currentPage) }} | KDCode </title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	{{--
@@ -47,7 +47,7 @@
 		<!-- Header Start -->
 		<div class="header-area">
 			<div class="main-header ">
-				<div class="header-top d-none d-lg-block">
+				{{-- <div class="header-top d-none d-lg-block">
 					<!-- Left Social -->
 					<div class="header-left-social">
 						<ul class="header-social">
@@ -98,12 +98,12 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> --}}
 				<div class="header-bottom header-sticky">
 					<!-- Logo -->
 					<div class="logo d-none d-lg-block" style="background-color: transparent;">
 						<a href="/">
-							<img alt="site01logo" class="sitelogo_sm_header" src=@env('local'){!! '"/storage/logo/kaydeeLogo.jpg"' !!}
+							<img alt="site01logo" class="sitelogo_sm_header__admin" src=@env('local'){!! '"/storage/logo/kaydeeLogo.jpg"' !!}
 								@endenv @production{!! '"/raw_assets/onlineedu/assets/img/logo/kaydeeLogo.jpg"' !!}@endproduction />
 						</a>
 					</div>
@@ -117,63 +117,13 @@
 										@production{!! '"/raw_assets/onlineedu/assets/img/logo/kaydeeLogo.jpg"' !!}@endproduction /></a>
 							</div>
 							<!-- Main-menu -->
-							<div class="main-menu d-none d-lg-block">
-								<nav>
-									<ul id="navigation">
-										<li class="text-center d-lg-none">
-											@guest
-											<div class="d-flex justify-content-center">
-												<a class="btn btn-pry px-5 py-3 c-white" href="{{ route('login') }}">Login</a>
-												<a class="btn btn-pry px-5 py-3 c-white" href="{{ route('register') }}">Register</a>
-											</div>
-											@endguest
-
-										</li>
-										<li><a href="/">Home</a></li>
-										<li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-										<li><a href="{{ route('blog') }}">Blog</a>
-											<ul class="submenu">
-												<li><a href="{{ route('blog') }}">Blog</a></li>
-												<li><a href="{{ route('blog_details') }}">Blog Details</a></li>
-												<li><a href="{{ route('elements') }}">Element</a></li>
-											</ul>
-										</li>
-
-										<li><a href="{{ route('about') }}">More</a>
-											<ul class="submenu">
-												<li><a href="{{ route('about') }}">About</a></li>
-												<li><a href="{{ route('courses') }}">Courses</a></li>
-												<li><a href="{{ route('instructors') }}">Instructors</a></li>
-
-											</ul>
-										</li>
-										<li><a href="{{ route('contact') }}">Contact</a></li>
-
-										<li><a href="{{ route('admin.student.dashboard') }}">student</a></li>
-
-										<li><a href="{{ route('admin.instructor.dashboard') }}">instructor</a></li>
-
-										<li class="text-center d-lg-none">@auth
-											<div class="d-flex justify-content-center">
-												<form method="POST" id="form1" action="{{ route('logout') }}" name='logout_form'
-													onsubmit="__submit('logout_btn_sm')">
-													@csrf
-													<button type="submit" class='px-5 genric-btn btn-danger' id="logout_btn_sm"
-														name="logout_btn_sm"> Logout </button>
-												</form>
-
-											</div>
-											@endauth
-										</li>
-									</ul>
-								</nav>
-							</div>
 							<!-- Header-btn -->
 							<div class="header-search d-none d-lg-block">
-								<form action="#" class="form-box f-right ">
+								<form action="#" class="">
 									<input type="text" name="Search" placeholder="Search Courses">
 									<div class="search-icon">
-										<i class="fas fa-search special-tag"></i>
+										<!-- <i class="fas fa-search special-tag"></i> -->
+										<a href="#" class="href"><i class="fas fa-search special-tag"></i></a>
 									</div>
 								</form>
 							</div>
@@ -188,3 +138,5 @@
 		</div>
 		<!-- Header End -->
 	</header>
+
+	<!-- <br><br><br><br><br><br><br><br> -->
