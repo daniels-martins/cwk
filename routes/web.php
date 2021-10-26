@@ -63,7 +63,15 @@ Route::get('/coming_soon', fn () => 'our coming_soon route page')->name('coming_
 Route::get('/todo', fn () => 'our todo route page')->name('todo');
 Route::get('/urgent_todo', fn () => 'our urgent_todo route page')->name('urgent_todo');
 
+// for students who want to view instructors
 
+Route::get(
+  'instructors/{instructor}',
+  fn () => 'A single instructor page for students who want to view any specific instructor profile '. request()->instructor
+)->name('instructors.show');
+// there is no middleware for this route, cos its supposed to be available to both guests and registered users...
+
+// for testing
 
 Route::get('tester', function () {
 });

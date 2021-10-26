@@ -56,14 +56,13 @@
 							<div class="modal-header">
 								<h5 class="modal-title text-white font-bold">Are you sure you want to logout?</h5>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true" class="text-red-300 font-light text-xxl">&CircleTimes;</span>
+									<span aria-hidden="true" class="text-gray-100 font-thin text-sm">x</span>
 								</button>
 							</div>
 							<div class="modal-body">
-								<p class="text-white text-sm word-sp-">If you logout bad things might happen.  Just kidding :) </p>
+								<p class="text-white text-sm word-sp-">If you logout bad things might happen. I'm Just kidding :) </p>
 							</div>
 							<div class="modal-footer">
-								
 								<button type="submit" name="logout_btn_pc" form="logout_form_pc" class="px-3 py-2 bg-gray-700 text-gray-50 rounded-md hover:text-red-600">Logout Now</button> &nbsp;&nbsp;&nbsp;
 								<button type="button" class="px-2 py-1 text-gray-100 rounded-md hover:text-purple-300" data-dismiss="modal">Cancel</button>
 							</div>
@@ -71,21 +70,16 @@
 					</div>
 				</div>
 			</div>
-
-
 			<!-- @end/All popup modals for the header goes here -->
-
 			<div class="main-header ">
-
 				<div class="header-top d-none d-lg-block">
 					<!-- Left Social -->
 					<div class="header-left-social">
 						<ul class="header-social">
 							<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+							<li><a href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook"></i></a></li>
+							<li><a href="https://www.facebook.com/sai4ull"><i class="fab fa-linkedin-in"></i></a></li>
 							<li> <a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-							<li> <a href="#"><i class="fab fa-whatsapp" style="color: red;"></i></a></li>
 						</ul>
 					</div>
 					<div class="container">
