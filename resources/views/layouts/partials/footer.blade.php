@@ -46,7 +46,7 @@
 					</div>
 				</div>
 				<!-- Footer Menu -->
-				<div class="row d-flex justify-content-between">
+				<!-- <div class="row d-flex justify-content-between">
 					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
 						<div class="single-footer-caption mb-50">
 							<div class="footer-tittle">
@@ -110,7 +110,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<!-- Footer Bottom -->
 			<div class="footer-bottom">
@@ -158,14 +158,12 @@
 
 	document.addEventListener('DOMContentLoaded', function greeting() {
 		// alert('hello mr. maraji');
-		console.log('the same thing',new Date().toTimeString().split(" ")[0]);
+		console.log('the same thing repeated stuff',new Date().toTimeString().split(" ")[0]);
 	}); 
 
 	if (document.readyState === 'loading') {
 		// console.log('document is already ready, just execute code here');
 		console.log('document is stil loading ready, just execute code here', new Date().toTimeString().split(" ")[0]);
-
-
 		// myInitCode();
 	}
 	// else {
