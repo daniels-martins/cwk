@@ -11,20 +11,12 @@
 	<title> {{ strtoupper($currentPage) }} | KDCode </title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	{{--
-	<link rel="manifest" href="site.webmanifest"> --}}
 	<link rel="shortcut icon" type="image/x-icon" href="/raw_assets/onlineedu/assets/img/favicon.ico">
 
 	<!-- CSS here -->
 	<link rel="stylesheet" href="/raw_assets/onlineedu/assets/css/all.css">
 	<link href="{{ mix('css/app.css') }}" rel="stylesheet" info="eye" />
 	<link rel="stylesheet" href="/css/new.css">
-	<style>
-	</style>
-
-	{{--
-	<!-- Js here -->
-	<script defer src="{{ mix('js/app.js') }}"></script> --}}
 	@yield('custom_styles')
 	@yield('header_scripts')
 </head>
@@ -116,13 +108,11 @@
 												name='logout_btn_pc__modal'
 													data-target="#bigModal">Logout</button> |
 												{{-- here goes the modal --}}
-												<!-- modal is supposed to be here but it does not overlay when placed inside the header's (.main-header). Consequently, it is placed before the header's (.main-header) in the (.header-area). check the 'data-target' attribute for more details --> 
+												<!-- modal is supposed to be here but it does not overlay or work properly when placed inside the header's (.main-header). Consequently, it is placed before the header's (.main-header) in the (.header-area). check the 'data-target' attribute for more details --> 
 												&nbsp;&nbsp;&nbsp;
 												<button type="submit" class='d-inline-block' name='logout_btn_pc' title="quick logout">
 													<i class="ti-power-off text-lg font-bold antialiased text-red-500"></i>
 												</button>
-
-
 											</form>
 										</li>
 										@endguest
@@ -136,8 +126,9 @@
 					<!-- Logo -->
 					<div class="logo d-none d-lg-block" style="background-color: transparent;">
 						<a href="/">
-							<img alt="site01logo" class="sitelogo_sm_header" src=@env('local'){!! '"/storage/logo/kaydeeLogo.jpg"' !!}
-								@endenv @production{!! '"/raw_assets/onlineedu/assets/img/logo/kaydeeLogo.jpg"' !!}@endproduction />
+							<img alt="site01logo" class="sitelogo_sm_header" 
+							src=@env('local'){!! '"/storage/logo/kaydeeLogo.jpg"' !!} @endenv 
+								@production{!! '"/raw_assets/onlineedu/assets/img/logo/kaydeeLogo.jpg"' !!}@endproduction />
 						</a>
 					</div>
 					<div class="container">

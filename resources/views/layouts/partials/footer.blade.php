@@ -45,72 +45,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- Footer Menu -->
-				<!-- <div class="row d-flex justify-content-between">
-					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-						<div class="single-footer-caption mb-50">
-							<div class="footer-tittle">
-								<h4>About Us</h4>
-								<ul>
-									<li><a href="#">Online Learning</a></li>
-									<li><a href="{{ route('about') }}">About Us</a></li>
-									<li><a href="{{ route('careers') }}">Careers</a></li>
-									<li><a href="#">Press Center</a></li>
-									{{-- this one below requires a post request to /instructors --}}
-									<li><a href="{{ route('instructors') }}">Become an Instructor</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-						<div class="single-footer-caption mb-50">
-							<div class="footer-tittle">
-								<h4>Campus</h4>
-								<ul>
-									<li><a href="{{ route('our_plans') }}">Our Plans</a></li>
-									<li><a href="{{ route('free_trial') }}">Free Trial</a></li>
-									<li><a href="{{ route('coming_soon') }}">Academic Solutions</a></li>
-									<li><a href="{{ route('coming_soon') }}">Business Solutions</a></li>
-									<li><a href="{{ route('coming_soon') }}"> Government Solutions</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-						<div class="single-footer-caption mb-50">
-							<div class="footer-tittle">
-								<h4>Study</h4>
-								<ul>
-									<li><a href="{{ route('todo',['todo'=>
-                                       ' admissions__policy']) }}">Admissions Policy</a></li>
-									<li><a href="{{ route('todo',['todo'=>
-                                       ' geting_started']) }}">Getting Started</a></li>
-									<li><a href="{{ route('todo',['todo'=>
-                                       ' online_application']) }}">Online Application</a></li>
-									<li><a href="#">Visa Information</a></li>
-									<li><a href="{{ route('todo',['todo'=>
-                                       ' tuition_calc']) }}">Tuition Calculator</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-						<div class="single-footer-caption mb-50">
-							<div class="footer-tittle">
-								<h4>Spport</h4>
-								<ul>
-									<li><a href="{{ route('urgent_todo',['todo'=>
-                                       ' support']) }}">Support</a></li>
-									<li><a href="{{ route('contact') }}">Contact Us</a></li>
-									<li><a href="/abandon">System Requirements</a></li>
-									<li><a href="/abandon">Register Activation Key</a></li>
-									<li><a href="{{ route('todo',['todo'=>
-                                       ' feedback']) }}">Site feedback</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div> -->
+				
 			</div>
 			<!-- Footer Bottom -->
 			<div class="footer-bottom">
@@ -126,7 +61,7 @@
 									<img class="sitelogo_sm_footer" src=@env('local'){!! '"/storage/logo/kaydeeLogo.jpg"' !!} @endenv
 										@production {!!'"/raw_assets/onlineedu/assets/img/logo/kaydeeLogo.jpg"'!!} @endproduction />
 								</a>
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								<!--Link back to Colorlib can't be removed.Template is licensed under CC BY 3.0-->
 							</p>
 						</div>
 					</div>
@@ -157,24 +92,13 @@
 	}
 
 	document.addEventListener('DOMContentLoaded', function greeting() {
-		// alert('hello mr. maraji');
 		console.log('the same thing repeated stuff',new Date().toTimeString().split(" ")[0]);
 	}); 
 
 	if (document.readyState === 'loading') {
-		// console.log('document is already ready, just execute code here');
 		console.log('document is stil loading ready, just execute code here', new Date().toTimeString().split(" ")[0]);
-		// myInitCode();
 	}
-	// else {
-	// 		document.addEventListener('DOMContentLoaded', function () {
-	// 		console.log('document was not ready, place code here');
-	// 		// myInitCode();
-	// 	});
-	// }
 </script>
-
-
 
 <!-- JS here -->
 
@@ -187,7 +111,7 @@
 
 <script src="/raw_assets/onlineedu/assets/js/bootstrap.min.js"></script>
 
-<!-- import the bootstrap animate css... plugin -->
+<!-- import the bootstrap animate css... plugin udo did  this -->
 <script src="/raw_assets/onlineedu/assets/js/vendor/bootstrap-animate-css.js"></script>
 
 <!-- Jquery Mobile Menu -->
@@ -222,13 +146,12 @@
 <script src="/raw_assets/onlineedu/assets/js/plugins.js"></script>
 <script src="/raw_assets/onlineedu/assets/js/main.js"></script>
 
-
 <!-- laravel Js here -->
 <script defer src="{{ mix('js/app.js') }}"></script>
 </body>
 
 </html>
-
+<!-- eol__eol===================eol__eol=======================eol__eol================eol__eol -->
 <!-- NB: this is outside the dom -->
 <script>
 //solution 1 using onclick on the submit button

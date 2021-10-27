@@ -18,7 +18,8 @@
 						<div class="col-xl-6 col-lg-7 col-md-8">
 							<div class="hero__caption">
 								<span data-animation="fadeInLeft" data-delay=".2s">Popular Online Courses</span>
-								<h1 data-animation="fadeInLeft" data-delay=".4s">The New Way To Learn Coding Properly With Us! <br />
+								<h1 data-animation="fadeInLeft" data-delay=".4s">
+									The New Way To Learn Coding Properly With Us! <br />
 									Don't Dull... </h1>
 								<!-- Hero-btn -->
 								<div class="hero__btn">
@@ -29,30 +30,7 @@
 						</div>
 						<div class="col-xl-6 col-lg-5">
 							<div class="hero-man d-none d-lg-block f-right" data-animation="jello" data-delay=".4s">
-								<img src="/raw_assets/onlineedu/assets/img/hero/heroman.png" alt="">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Single Slider -->
-			<div class="single-slider slider-height d-flex align-items-center">
-				<div class="container">
-					<div class="row align-items-center">
-						<div class="col-xl-6 col-lg-7 col-md-8">
-							<div class="hero__caption">
-								<span data-animation="fadeInLeft" data-delay=".2s">Popular Online Courses</span>
-								<h1 data-animation="fadeInLeft" data-delay=".4s">The New Way To Learn Properly in With Us!</h1>
-								<!-- Hero-btn -->
-								<div class="hero__btn">
-									<a href="industries.html" class="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s">Get
-										Started</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-6 col-lg-5">
-							<div class="hero-man d-none d-lg-block f-right" data-animation="jello" data-delay=".4s">
-								<img src="/raw_assets/onlineedu/assets/img/hero/heroman.png" alt="">
+								<img src="/raw_assets/onlineedu/assets/img/hero/heroman.png" alt="heroman_img">
 							</div>
 						</div>
 					</div>
@@ -183,138 +161,15 @@
 			</div>
 		</div>
 	</div>
-	<!-- Count Down End -->
-	<!--? Popular Course Start -->
-	{{-- <div class="popular-course section-padding30">
-		<div class="container">
-			<div class="row justify-content-sm-center">
-				<div class="cl-xl-7 col-lg-8 col-md-10">
-					<!-- Section Tittle -->
-					<div class="section-tittle text-center mb-70">
-						<span>Most Popular Course Of This Week</span>
-						<h2>Our Popular Courses</h2>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xl-4 col-lg-4 col-md-6">
-					<!-- Single course -->
-					<div class="single-course mb-40">
-						<div class="course-img">
-							<img src="/raw_assets/onlineedu/assets/img/gallery/popular_sub1.png" alt="">
-						</div>
-						<div class="course-caption">
-							<div class="course-cap-top">
-								<h4><a href="#">Graphic Design</a></h4>
-							</div>
-							<div class="course-cap-mid d-flex justify-content-between">
-								<div class="course-ratting">
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-								</div>
-								<ul>
-									<li>52 Review</li>
-								</ul>
-							</div>
-							<div class="course-cap-bottom d-flex justify-content-between">
-								<ul>
-									<li><i class="ti-user"></i> 562</li>
-									<li><i class="ti-heart"></i> 562</li>
-								</ul>
-								<span>Free</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-4 col-md-6">
-					<!-- Single course -->
-					<div class="single-course mb-40">
-						<div class="course-img">
-							<img src="/raw_assets/onlineedu/assets/img/gallery/popular_sub2.png" alt="">
-						</div>
-						<div class="course-caption">
-							<div class="course-cap-top">
-								<h4><a href="#">Web Development</a></h4>
-							</div>
-							<div class="course-cap-mid d-flex justify-content-between">
-								<div class="course-ratting">
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-								</div>
-								<ul>
-									<li>52 Review</li>
-								</ul>
-							</div>
-							<div class="course-cap-bottom d-flex justify-content-between">
-								<ul>
-									<li><i class="ti-user"></i> 562</li>
-									<li><i class="ti-heart"></i> 562</li>
-								</ul>
-								<span>Free</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-4 col-md-6">
-					<!-- Single course -->
-					<div class="single-course mb-40">
-						<div class="course-img">
-							<img src="/raw_assets/onlineedu/assets/img/gallery/popular_sub3.png" alt="">
-						</div>
-						<div class="course-caption">
-							<div class="course-cap-top">
-								<h4><a href="#">Digital Marketing</a></h4>
-							</div>
-							<div class="course-cap-mid d-flex justify-content-between">
-								<div class="course-ratting">
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-								</div>
-								<ul>
-									<li>52 Review</li>
-								</ul>
-							</div>
-							<div class="course-cap-bottom d-flex justify-content-between">
-								<ul>
-									<li><i class="ti-user"></i> 562</li>
-									<li><i class="ti-heart"></i> 562</li>
-								</ul>
-								<span>Free</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Section Button -->
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="browse-btn2 text-center mt-50">
-						<a href="courses.html" class="btn capitalize">get started now</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> --}}
-	<!-- Popular Course End -->
-	<!--? Team Ara Start -->
-	<div class="team-area pt-160 pb-160 section-bg"
+
+	<div class="team-area pt-40 pb-40 section-bg"
 		data-background="/raw_assets/onlineedu/assets/img/gallery/section_bg02.png">
 		<div class="container">
 			<div class="row justify-content-center">
-				<div class="cl-xl-7 col-lg-8 col-md-10">
+				<div class="col-xl-7 col-lg-8 col-md-10">
 					<!-- Section Tittle -->
-					<div class="section-tittle section-tittle2 text-center mb-70">
-						<span>More About Our Faculty</span>
-						<h2>Our Best Teachers</h2>
+					<div class="section-tittle section-tittle2 text-center mb-20">
+						<h2 class="capitalize">Learn from the best</h2>
 					</div>
 				</div>
 			</div>
@@ -322,7 +177,7 @@
 				<div class="col-lg-3 col-md-6 col-sm-6 offset-4">
 					<div class="single-team mb-30">
 						<div class="team-img">
-							<img src="/raw_assets/onlineedu/assets/img/gallery/team4.png" alt="">
+							<img src="/raw_assets/img/kelvin_diei.jpg" alt="kelvin_diei">
 							<!-- Blog Social -->
 							<ul class="team-social">
 								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -331,20 +186,20 @@
 							</ul>
 						</div>
 						<div class="team-caption">
-							<h3><a href="{{ route('instructors.show', 'Mr.lecturer') }}">Alexa j Watson</a></h3>
-							<p>Faculty</p>
+							<h3><a href="{{ route('instructors.show', 'Mr.lecturer') }}" class="capitalize">Kelvin Diei</a></h3>
+							<p>Full stack web developer</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- Section Button -->
-			<div class="row">
+			<!-- Section Button --><!-- this should be a component -->
+			<!-- <div class="row">
 				<div class="col-lg-12">
-					<div class="browse-btn2 text-center mt-70">
+					<div class="browse-btn2 text-center mt-30">
 						<a href="{{ route('instructors.show', 'Mr.lecturer') }}" class="btn white-btn">View All Faculty</a>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<!-- Team Ara End -->
@@ -472,7 +327,7 @@
 							</div>
 							<div class="blog-cap">
 								<p>| Properties</p>
-								<h3><a href="blog_details.html">Footprints in Time is perfect House in Kurashiki</a></h3>
+								<h3><a href="blog_details.html">Starting Javascript Tutorials soon!</a></h3>
 								<a href="blog_details.html" class="more-btn">Read more »</a>
 							</div>
 						</div>
@@ -491,7 +346,7 @@
 							</div>
 							<div class="blog-cap">
 								<p>| Properties</p>
-								<h3><a href="blog_details.html">Footprints in Time is perfect House in Kurashiki</a></h3>
+								<h3><a href="blog_details.html">Starting Javascript Tutorials soon!</a></h3>
 								<a href="blog_details.html" class="more-btn">Read more »</a>
 							</div>
 						</div>

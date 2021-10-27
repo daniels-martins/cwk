@@ -4469,7 +4469,8 @@
   height: 60px;
 }
 
-.sitelogo_sm_footer, .sitelogo_sm_header__admin {
+.sitelogo_sm_footer,
+.sitelogo_sm_header__admin {
   height: 40px;
   border-radius: 100%;
 }
@@ -4502,4 +4503,18 @@
 
 .btn_custom:hover {
   color: white;
+}
+
+.single-cat {
+  box-shadow: 0rem 0.3rem 0.1rem #edebeb;
+  border-radius: 2rem;
+  transition: all 0.9s;
+}
+.single-cat .cat-cap > h5:hover {
+  transform: scale(1.09);
+  box-shadow: 0.3rem 1rem 2rem 0.2rem black;
+  transition: all 0.3s;
+}
+.single-cat:hover {
+  box-shadow: 0.3rem 1rem 2rem 0.2rem black;
 }
