@@ -2,8 +2,10 @@
 
 use App\Models\Fee;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController as Dashboard;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,4 +82,13 @@ Route::get('/tinker', function () {
 })->name('tinker');
 
 
+
+// for maling system
+
+Route::post('mail_portfolio', [MailController::class, 'basic_email']);
+
+
 require __DIR__ . '/auth.php';
+
+
+
