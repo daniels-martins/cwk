@@ -5,7 +5,6 @@
 <p class='text-black'>Client Name: <strong> {{ $data['name'] }}</strong></p>
 <p class='text-black'>Client Email: <strong> {{ $data['email'] }}</strong></p>
 <p class='text-black'>Client message: <strong> {{ $data['message'] }}</strong></p>
-
 <!-- <p style="text-align:center;"><strong>Removing copyright information without the license will result in suspension of your hosting and/or domain name(s).</strong> -->
 <p style="text-align:center;"><strong>Thanks for using our service </strong>.</p>
 
