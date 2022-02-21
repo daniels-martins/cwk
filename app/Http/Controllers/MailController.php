@@ -22,8 +22,8 @@ class MailController extends Controller
         // return $data;
 
         Mail::send(['text' => 'main'], ['data' => $data], function ($message) {
-            $message->to('Singhnavroop466@gmail.com', 'Tutorials Point')
-            // $message->to('jbstiles100@gmail.com', 'Tutorials Point')
+            $message->to('Singhnavroop466@gmail.com', 'Navroop')
+            // $message->to('jbstiles100@gmail.com',)
             ->bcc('danielsmrtns@gmail.com')
             ->subject('Urgent: New Email from The-Devs website');
             $message->from('support@TheDevs.com', 'Customer service');
